@@ -28,21 +28,21 @@ export default function PortfolioPage() {
       });
 
   return (
-    <div className="pt-24 bg-background-light dark:bg-background-dark">
+    <div className="pt-24 bg-background-dark">
       {/* Hero Section */}
       <section className="px-6 md:px-20 pt-16 pb-12 max-w-[1440px] mx-auto">
         <div className="max-w-3xl">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6 tracking-tight text-slate-900 dark:text-white"
+            className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6 tracking-tight text-white"
           >
             The Gallery of <span className="gradient-text">Innovation</span>
           </motion.h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+          <p className="text-xl text-slate-400 leading-relaxed mb-4">
             Transforming Visions into Reality.
           </p>
-          <p className="text-lg text-slate-500 dark:text-slate-500 max-w-2xl">
+          <p className="text-lg text-slate-500 max-w-2xl">
             Explore our latest work across the realms of cinematic production, immersive technology, and experiential design.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function PortfolioPage() {
 
       {/* Filter System */}
       <section className="px-6 md:px-20 mb-12 max-w-[1440px] mx-auto">
-        <div className="flex flex-wrap border-b border-slate-200 dark:border-slate-800 gap-8">
+        <div className="flex flex-wrap border-b border-white/10 gap-8">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -58,7 +58,7 @@ export default function PortfolioPage() {
               className={`pb-4 text-sm font-bold uppercase tracking-widest border-b-2 transition-all ${
                 activeCategory === cat 
                 ? 'border-cyan-accent text-cyan-accent' 
-                : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
+                : 'border-transparent text-slate-500 hover:text-white'
               }`}
             >
               {cat}
@@ -119,7 +119,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Footer CTA Block */}
-      <section className="px-6 md:px-20 py-24 bg-background-light dark:bg-background-dark">
+      <section className="px-6 md:px-20 py-24 bg-background-dark">
         <div className="max-w-[1440px] mx-auto">
           <div className="bg-slate-900 dark:bg-primary/5 border border-slate-800 dark:border-primary/20 rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="text-center md:text-left">

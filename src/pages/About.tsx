@@ -130,12 +130,31 @@ export default function About() {
       <section className="py-24 bg-background-dark">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1 flex justify-center">
-            <div className="relative w-80 h-80 flex items-center justify-center">
-              <div className="absolute inset-0 border border-cyan-500/30 rounded-full animate-pulse"></div>
-              <div className="absolute inset-4 border border-blue-500/20 rounded-full"></div>
-              <div className="z-10 text-6xl text-cyan-400">
-                <span className="material-icons text-9xl">waves</span>
-              </div>
+            <div className="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center group">
+              {/* Powerful Pulsing Aura Background */}
+              <div className="absolute -inset-8 bg-gradient-to-r from-cyan-500/20 via-blue-500/10 to-purple-500/20 rounded-full blur-[60px] animate-pulse"></div>
+              
+              {/* Outer Pulsing Ring */}
+              <div className="absolute inset-0 border border-cyan-500/20 rounded-full animate-[ping_4s_linear_infinite]"></div>
+              
+              {/* The Modernized Logo Plate */}
+              <motion.div 
+                animate={{ 
+                  y: [0, -15, 0],
+                  rotate: [0, 2, 0]
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="relative z-10 w-48 h-48 md:w-56 md:h-56 bg-gradient-to-br from-cyan-300 via-white to-sky-200 rounded-full p-8 shadow-[0_30px_60px_-15px_rgba(6,182,212,0.4)] border-2 border-white flex items-center justify-center overflow-hidden"
+              >
+                <img 
+                  src="/image/logo_Dlian.png" 
+                  alt="D'Lian Logo" 
+                  className="w-full h-full object-contain"
+                  referrerPolicy="no-referrer"
+                />
+                {/* Vivid Glass Shine Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent pointer-events-none"></div>
+              </motion.div>
             </div>
           </div>
           <div className="order-1 md:order-2 space-y-6">

@@ -21,12 +21,20 @@ export default function Navbar() {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-nav h-20' : 'bg-transparent h-24'}`}>
       <div className="max-w-7xl mx-auto px-8 h-full flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <img 
-            src="https://storage.googleapis.com/test-api-416107.appspot.com/aistudio/AB6AXuC6Y7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v7v" 
-            alt="D'Lian Group Logo" 
-            className="h-16 w-auto object-contain invert hue-rotate-180"
-            referrerPolicy="no-referrer"
-          />
+          <div className="relative">
+            {/* Logo Aura - Powerful vibrant glow */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400/40 via-blue-500/30 to-purple-500/40 rounded-[24px] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
+            
+            <img 
+              src="/image/logo_Dlian.png" 
+              alt="D'Lian Group Logo" 
+              className="relative h-16 w-auto object-contain bg-gradient-to-br from-cyan-300 via-white to-sky-200 rounded-[20px] p-1.5 shadow-[0_15px_35px_-10px_rgba(6,182,212,0.5)] border-2 border-white transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-1"
+              referrerPolicy="no-referrer"
+            />
+            
+            {/* Vivid Glass Shine */}
+            <div className="absolute inset-0 rounded-[20px] bg-gradient-to-tr from-transparent via-white/40 to-transparent pointer-events-none group-hover:via-white/60 transition-all duration-500"></div>
+          </div>
         </Link>
 
         <div className="hidden md:flex items-center gap-12 text-sm font-semibold tracking-wide text-white/70">

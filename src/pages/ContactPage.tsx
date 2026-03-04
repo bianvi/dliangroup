@@ -43,13 +43,37 @@ export default function ContactPage() {
           <div className="absolute -top-20 -left-20 w-64 h-64 bg-cyan-accent/10 rounded-full blur-3xl"></div>
           
           <div className="relative z-10">
-            {/* Logo Placeholder */}
+            {/* Animated & Enlarged Dlian Logo */}
             <motion.div 
-              animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="w-24 h-24 mb-12 flex items-center justify-center border border-cyan-accent/50 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.2)]"
+              animate={{ 
+                scale: [1, 1.1, 1],
+                boxShadow: [
+                  "0 0 0px rgba(6,182,212,0)",
+                  "0 0 30px rgba(6,182,212,0.6)",
+                  "0 0 0px rgba(6,182,212,0)"
+                ]
+              }}
+              transition={{ 
+                duration: 4, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="relative w-32 h-32 mb-16 rounded-full group cursor-default"
             >
-              <span className="text-cyan-accent text-xs font-bold tracking-widest uppercase">D'Lian</span>
+              {/* Logo Aura - Dynamic background glow */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-400/40 via-blue-500/30 to-purple-500/40 rounded-full blur-3xl opacity-80"></div>
+              
+              <div className="relative w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-300 via-white to-sky-200 rounded-full p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] border-2 border-white overflow-hidden">
+                <img 
+                  src="/image/logo_Dlian.png" 
+                  alt="D'Lian Group Logo" 
+                  className="w-full h-full object-contain"
+                  referrerPolicy="no-referrer"
+                />
+                
+                {/* Glass Shine Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent pointer-events-none"></div>
+              </div>
             </motion.div>
             
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">

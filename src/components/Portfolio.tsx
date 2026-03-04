@@ -50,15 +50,18 @@ export default function Portfolio() {
     return () => clearInterval(timer);
   }, [isAutoplayEnabled, filteredProjects.length]);
 
-  // Sync scroll position with currentIndex
+  // Sync scroll position with currentIndex without jumping the page vertically
   useEffect(() => {
     if (carouselRef.current) {
-      const children = carouselRef.current.children;
-      if (children[currentIndex]) {
-        children[currentIndex].scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center'
+      const container = carouselRef.current;
+      const children = container.children;
+      const targetChild = children[currentIndex] as HTMLElement;
+      
+      if (targetChild) {
+        const targetLeft = targetChild.offsetLeft - (container.offsetWidth / 2) + (targetChild.offsetWidth / 2);
+        container.scrollTo({
+          left: targetLeft,
+          behavior: 'smooth'
         });
       }
     }
