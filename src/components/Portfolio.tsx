@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { projects } from '../data/projects';
@@ -139,9 +141,9 @@ export default function Portfolio() {
                 </div>
 
                 <motion.div 
-                  initial={false}
-                  animate={{ height: expandedIndex === index ? 'auto' : 0, opacity: expandedIndex === index ? 1 : 0 }}
-                  className="overflow-hidden"
+                   initial={false}
+                   animate={{ height: expandedIndex === index ? 'auto' : 0, opacity: expandedIndex === index ? 1 : 0 }}
+                   className="overflow-hidden"
                 >
                   <div className="bg-background-dark/75 backdrop-blur-md border border-cyan-accent/20 rounded-2xl p-6 mt-4">
                     <p className="text-white/90 text-sm leading-relaxed line-clamp-2">{project.overview}</p>

@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const services = [
   {
@@ -61,7 +63,7 @@ export default function Services() {
                 ))}
               </div>
               <div className="mt-auto">
-                <Link to={service.link} className="text-cyan-accent text-sm font-bold tracking-[0.25em] uppercase flex items-center gap-3 hover:gap-5 transition-all">
+                <Link href={service.link} className="text-cyan-accent text-sm font-bold tracking-[0.25em] uppercase flex items-center gap-3 hover:gap-5 transition-all">
                   Learn More <span className="material-icons text-sm">arrow_forward</span>
                 </Link>
               </div>
@@ -73,7 +75,7 @@ export default function Services() {
           <a href="#contact" className="group relative primary-glow-btn px-12 py-5 bg-gradient-to-r from-accent-blue to-cyan-accent text-white rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 inline-block text-center">
             Start your project
           </a>
-          <Link to="/portfolio" className="group relative px-12 py-5 bg-white text-background-dark rounded-full font-bold text-lg shadow-xl hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-500 hover:scale-105 inline-block text-center">
+          <Link href="/portfolio" className="group relative px-12 py-5 bg-white text-background-dark rounded-full font-bold text-lg shadow-xl hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-500 hover:scale-105 inline-block text-center">
             View our work
           </Link>
         </div>
