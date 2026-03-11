@@ -12,10 +12,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "D'LIAN CONNECTION | Event Organization, Production House & Immersive Tech",
-  description: "Excellence in event organization, production house services, immersive technology, and amusement facilities. D'LIAN CONNECTION leads the way in creative and tech solutions.",
-  keywords: "event organization, production house, immersive tech, amusement facilities, D'LIAN CONNECTION, events, technology",
-  authors: [{ name: "D'LIAN CONNECTION" }],
+  title: "D'lian Connection | Event Organization, Production House & Immersive Tech",
+  description: "Excellence in event organization, production house services, immersive technology, and amusement facilities. D'lian Connection leads the way in creative and tech solutions.",
+  keywords: "event organization, production house, immersive tech, amusement facilities, D'lian Connection, events, technology",
+  authors: [{ name: "D'lian Connection" }],
   robots: "index, follow",
 };
 

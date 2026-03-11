@@ -26,7 +26,7 @@ const services = [
   {
     title: "Amusement Facilities",
     icon: "architecture",
-    items: ["Playground Design", "Equipment"],
+    items: ["Playground Design", "Equipment supply service"],
     link: "/services/amusement-facilities"
   }
 ];

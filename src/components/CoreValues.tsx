@@ -61,18 +61,20 @@ export default function CoreValues() {
         <div className="mt-40 flex flex-col items-center text-center mb-20 space-y-6">
           <h3 className="text-4xl md:text-5xl font-bold text-deep-navy">Our Unique Approach</h3>
           <p className="text-lg md:text-xl text-medium-gray-text max-w-4xl mx-auto font-normal leading-relaxed">
-            What sets D'LIAN CONNECTION apart is our holistic approach to experiential design. We don't just implement technology—we craft narratives and build emotional connections.
+            What sets D'lian Connection apart is our holistic approach to experiential design. We don't just implement technology—we craft narratives and build emotional connections.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { icon: "🧠", title: "AI-First Thinking", desc: "Leveraging artificial intelligence to create smarter, more responsive experiences." },
-            { icon: "🎨", title: "Creative Excellence", desc: "Balancing technical innovation with artistic vision and creative storytelling." },
-            { icon: "👥", title: "Human-Centered Design", desc: "Putting people at the heart of every technological solution we create." }
+            { icon: "psychology", title: "AI-First Thinking", desc: "Leveraging artificial intelligence to create smarter, more responsive experiences." },
+            { icon: "magic_button", title: "Creative Excellence", desc: "Balancing technical innovation with artistic vision and creative storytelling." },
+            { icon: "diversity_3", title: "Human-Centered Design", desc: "Putting people at the heart of every technological solution we create." }
           ].map((item, i) => (
             <div key={i} className="bg-white p-12 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center space-y-6 transition-all hover:shadow-md">
-              <div className="text-4xl">{item.icon}</div>
+              <div className="w-16 h-16 bg-cyan-accent/5 rounded-2xl flex items-center justify-center text-cyan-accent mb-2">
+                <span className="material-symbols-outlined text-4xl">{item.icon}</span>
+              </div>
               <h4 className="text-2xl font-bold text-deep-navy">{item.title}</h4>
               <p className="text-medium-gray-text leading-relaxed">{item.desc}</p>
             </div>

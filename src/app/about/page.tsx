@@ -49,7 +49,7 @@ export default function About() {
               <span className="uppercase tracking-[0.2em] text-cyan-600 font-bold text-sm">Our Genesis</span>
               <h2 className="text-4xl md:text-5xl font-bold text-blue-900">Pioneering Creative Innovation</h2>
               <p className="text-lg text-slate-600 leading-relaxed">
-                At D'LIAN CONNECTION, we don't just produce content; we engineer atmosphere. Founded on the belief that technology should be a bridge to deeper human emotion, we have emerged as a pioneering force in Southeast Asia’s creative landscape.
+                At D'lian Connection, we don't just produce content; we engineer atmosphere. Founded on the belief that technology should be a bridge to deeper human emotion, we have emerged as a pioneering force in Southeast Asia’s creative landscape.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
                 What started as a boutique creative studio has evolved into a powerhouse of AI innovation and high-end media production. Our journey is rooted in the belief that technology shouldn't just serve function—it should elevate art.
@@ -150,7 +150,7 @@ export default function About() {
               >
                 <img 
                   src="/image/logo_Dlian.png" 
-                  alt="D'LIAN CONNECTION Logo" 
+                  alt="D'lian Connection Logo" 
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
@@ -218,7 +218,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-white mb-4">Our Collaborative Core</h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-16 text-lg">
-            D'LIAN CONNECTION is a unique collective of <span className="text-white font-semibold">Technologists, Artists, and Producers</span> working in perfect synchronicity.
+            D'lian Connection is a unique collective of <span className="text-white font-semibold">Technologists, Artists, and Producers</span> working in perfect synchronicity.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[

@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
               <span className="material-icons text-white text-sm">auto_awesome</span>
             </div>
-            <span className="text-lg font-bold tracking-[0.2em] uppercase text-white">D'LIAN CONNECTION</span>
+            <span className="text-lg font-bold tracking-[0.2em] uppercase text-white">D'lian Connection</span>
           </div>
           
           <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-white/50">
@@ -18,7 +18,7 @@ export default function Footer() {
             <a href="#" className="hover:text-cyan-accent transition-colors">Legal</a>
           </div>
           
-          <p className="text-white/40 text-sm font-medium">© 2024 D'LIAN CONNECTION. All rights reserved.</p>
+          <p className="text-white/40 text-sm font-medium">© 2024 D'lian Connection. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -45,7 +45,7 @@ export default function ContactPage() {
           <div className="absolute -top-20 -left-20 w-64 h-64 bg-cyan-accent/10 rounded-full blur-3xl"></div>
           
           <div className="relative z-10">
-            {/* Animated & Enlarged D'LIAN CONNECTION Logo */}
+            {/* Animated & Enlarged D'lian Connection Logo */}
             <motion.div 
               animate={{ 
                 scale: [1, 1.1, 1],
@@ -68,7 +68,7 @@ export default function ContactPage() {
               <div className="relative w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-300 via-white to-sky-200 rounded-full p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] border-2 border-white overflow-hidden">
                 <img 
                   src="/image/logo_Dlian.png" 
-                  alt="D'LIAN CONNECTION Logo" 
+                  alt="D'lian Connection Logo" 
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
@@ -170,7 +170,7 @@ export default function ContactPage() {
                   <label className="text-xs font-bold uppercase tracking-widest text-cyan-accent/70 ml-1 min-h-[2.5rem] flex items-end pb-1">Company Name</label>
                   <input 
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-cyan-accent focus:bg-white/10 transition-all outline-none text-white placeholder:text-gray-500 rounded-lg"
-                    placeholder="D'LIAN CONNECTION"
+                    placeholder="D'lian Connection"
                     required
                     type="text"
                     onChange={(e) => setFormData({...formData, companyName: e.target.value})}

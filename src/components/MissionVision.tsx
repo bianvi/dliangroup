@@ -16,7 +16,7 @@ export default function MissionVision() {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-cyan-accent tracking-tight">Our Mission</h2>
             <p className="text-lg md:text-xl text-white/80 leading-[1.6]">
-              At D'LIAN CONNECTION, our mission is to redefine reality by transforming physical spaces into immersive, emotive experiences through advanced AI innovation. We bridge the gap between high-fashion aesthetics and cutting-edge technology to create unforgettable human connections.
+              At D'lian Connection, our mission is to redefine reality by transforming physical spaces into immersive, emotive experiences through advanced AI innovation. We bridge the gap between high-fashion aesthetics and cutting-edge technology to create unforgettable human connections.
             </p>
           </div>
 
@@ -26,7 +26,7 @@ export default function MissionVision() {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-cyan-accent tracking-tight">Our Vision</h2>
             <p className="text-lg md:text-xl text-white/80 leading-[1.6]">
-              We envision ourselves as the global pioneering force in the AI-driven creative landscape. By continuously pushing the boundaries of digital artistry and production, we aim to lead a new era of entertainment where technology enhances every facet of our sensory world.
+              We envision ourselves as the Vietnamese pioneering force in the AI-driven creative landscape. By continually pushing the boundaries of digital artistry and production, we aim to lead a new era of entertainment in which technology enhances every facet of our sensory world.
             </p>
           </div>
         </div>
