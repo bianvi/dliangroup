@@ -30,7 +30,7 @@ export default function Navbar() {
             
             <img 
               src="/image/logo_Dlian.png" 
-              alt="D'Lian Group Logo" 
+              alt="D'LIAN CONNECTION Logo" 
               className="relative h-16 w-auto object-contain bg-gradient-to-br from-cyan-300 via-white to-sky-200 rounded-[20px] p-1.5 shadow-[0_15px_35px_-10px_rgba(6,182,212,0.5)] border-2 border-white transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-1"
               referrerPolicy="no-referrer"
             />

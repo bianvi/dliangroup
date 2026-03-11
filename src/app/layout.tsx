@@ -12,10 +12,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Dlian Group | Event Organization, Production House & Immersive Tech",
-  description: "Excellence in event organization, production house services, immersive technology, and amusement facilities. Dlian Group leads the way in creative and tech solutions.",
-  keywords: "event organization, production house, immersive tech, amusement facilities, Dlian Group, events, technology",
-  authors: [{ name: "Dlian Group" }],
+  title: "D'LIAN CONNECTION | Event Organization, Production House & Immersive Tech",
+  description: "Excellence in event organization, production house services, immersive technology, and amusement facilities. D'LIAN CONNECTION leads the way in creative and tech solutions.",
+  keywords: "event organization, production house, immersive tech, amusement facilities, D'LIAN CONNECTION, events, technology",
+  authors: [{ name: "D'LIAN CONNECTION" }],
   robots: "index, follow",
 };
 

@@ -56,7 +56,7 @@ export default function EventOrganization() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl font-light opacity-90 max-w-2xl mx-auto"
           >
-            D'Lian Group defines the intersection of high-concept design and flawless event execution.
+            D'LIAN CONNECTION defines the intersection of high-concept design and flawless event execution.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

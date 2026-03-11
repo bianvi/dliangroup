@@ -61,7 +61,7 @@ export default function CoreValues() {
         <div className="mt-40 flex flex-col items-center text-center mb-20 space-y-6">
           <h3 className="text-4xl md:text-5xl font-bold text-deep-navy">Our Unique Approach</h3>
           <p className="text-lg md:text-xl text-medium-gray-text max-w-4xl mx-auto font-normal leading-relaxed">
-            What sets Connection D'Lian apart is our holistic approach to experiential design. We don't just implement technology—we craft narratives and build emotional connections.
+            What sets D'LIAN CONNECTION apart is our holistic approach to experiential design. We don't just implement technology—we craft narratives and build emotional connections.
           </p>
         </div>
 

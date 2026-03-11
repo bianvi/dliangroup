@@ -49,7 +49,7 @@ export default function About() {
               <span className="uppercase tracking-[0.2em] text-cyan-600 font-bold text-sm">Our Genesis</span>
               <h2 className="text-4xl md:text-5xl font-bold text-blue-900">Pioneering Creative Innovation</h2>
               <p className="text-lg text-slate-600 leading-relaxed">
-                At D'Lian Group, we don't just produce content; we engineer atmosphere. Founded on the belief that technology should be a bridge to deeper human emotion, we have emerged as a pioneering force in Southeast Asia’s creative landscape.
+                At D'LIAN CONNECTION, we don't just produce content; we engineer atmosphere. Founded on the belief that technology should be a bridge to deeper human emotion, we have emerged as a pioneering force in Southeast Asia’s creative landscape.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
                 What started as a boutique creative studio has evolved into a powerhouse of AI innovation and high-end media production. Our journey is rooted in the belief that technology shouldn't just serve function—it should elevate art.
@@ -150,7 +150,7 @@ export default function About() {
               >
                 <img 
                   src="/image/logo_Dlian.png" 
-                  alt="D'Lian Logo" 
+                  alt="D'LIAN CONNECTION Logo" 
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
@@ -179,7 +179,7 @@ export default function About() {
               <img 
                 alt="Fashion Excellence" 
                 className="w-full h-[600px] object-cover rounded-2xl shadow-xl" 
-                src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1000"
+                src="/image/founder.jpg"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -205,7 +205,7 @@ export default function About() {
               <img 
                 alt="Tech Camera" 
                 className="h-1/2 object-cover rounded-2xl shadow-xl" 
-                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=1000"
+                src="/image/expertise.jpg"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -218,7 +218,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-white mb-4">Our Collaborative Core</h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-16 text-lg">
-            The D'Lian Group is a unique collective of <span className="text-white font-semibold">Technologists, Artists, and Producers</span> working in perfect synchronicity.
+            D'LIAN CONNECTION is a unique collective of <span className="text-white font-semibold">Technologists, Artists, and Producers</span> working in perfect synchronicity.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[

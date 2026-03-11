@@ -16,7 +16,7 @@ export default function MissionVision() {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-cyan-accent tracking-tight">Our Mission</h2>
             <p className="text-lg md:text-xl text-white/80 leading-[1.6]">
-              At D'Lian Group, our mission is to redefine reality by transforming physical spaces into immersive, emotive experiences through advanced AI innovation. We bridge the gap between high-fashion aesthetics and cutting-edge technology to create unforgettable human connections.
+              At D'LIAN CONNECTION, our mission is to redefine reality by transforming physical spaces into immersive, emotive experiences through advanced AI innovation. We bridge the gap between high-fashion aesthetics and cutting-edge technology to create unforgettable human connections.
             </p>
           </div>
 

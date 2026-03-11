@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const testimonials = [
   {
-    quote: "The integration of AI into our fashion launch was seamless. D'Lian Group didn't just produce an event; they created a sensory journey that left our audience speechless. A new standard for our industry.",
+    quote: "The integration of AI into our fashion launch was seamless. D'LIAN CONNECTION didn't just produce an event; they created a sensory journey that left our audience speechless. A new standard for our industry.",
     author: "Alexander Vauthier",
     role: "Creative Director, AV Studio",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?bg=white&auto=format&fit=crop&q=80&w=200"
@@ -17,7 +17,7 @@ const testimonials = [
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?bg=white&auto=format&fit=crop&q=80&w=200"
   },
   {
-    quote: "Working with D'Lian Group on our theme park transformation was a game-changer. Their interactive systems are durable, beautiful, and most importantly, incredibly engaging for all ages.",
+    quote: "Working with D'LIAN CONNECTION on our theme park transformation was a game-changer. Their interactive systems are durable, beautiful, and most importantly, incredibly engaging for all ages.",
     author: "James Chen",
     role: "Director of Parks, Leisure Global",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?bg=white&auto=format&fit=crop&q=80&w=200"

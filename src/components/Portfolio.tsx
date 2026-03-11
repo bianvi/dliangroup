@@ -76,7 +76,7 @@ export default function Portfolio() {
           <h2 className="text-xs uppercase tracking-[0.6em] text-cyan-accent font-bold">Showcase</h2>
           <h3 className="text-4xl md:text-6xl font-bold">Featured Projects</h3>
           <p className="text-lg md:text-xl text-medium-gray-text max-w-2xl font-normal leading-relaxed mt-6 mx-auto">
-            Discover how Connection D'Lian has transformed ideas into immersive realities, creating breakthrough experiences that captivate audiences.
+            Discover how D'LIAN CONNECTION has transformed ideas into immersive realities, creating breakthrough experiences that captivate audiences.
           </p>
           
           <div className="flex flex-wrap gap-x-8 gap-y-4 text-xs font-bold uppercase tracking-[0.3em] mt-8 justify-center">
