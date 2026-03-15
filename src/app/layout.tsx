@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   keywords: "event organization, production house, immersive tech, amusement facilities, D'lian Connection, events, technology",
   authors: [{ name: "D'lian Connection" }],
   robots: "index, follow",
+  icons: {
+    icon: "/image/favicon.ico",
+  },
 };
 
 export default function RootLayout({

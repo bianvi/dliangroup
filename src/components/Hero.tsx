@@ -1,28 +1,23 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 
 export default function Hero() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center pt-24 md:pt-32">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 flex">
-          {[
-            "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1000",
-            "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1000",
-            "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=1000",
-            "https://images.unsplash.com/photo-1514525253344-99a42999629a?auto=format&fit=crop&q=80&w=1000"
-          ].map((src, i) => (
-            <div key={i} className="w-1/4 h-full relative overflow-hidden">
-              <img 
-                src={src} 
-                alt={`Hero ${i}`} 
-                className="w-full h-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-1000"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          ))}
+        <div className="absolute inset-0">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover opacity-60"
+            src="https://res.cloudinary.com/dhgu45hvi/video/upload/v1773546987/Mascot_Introduction_Video_Creation_jseosd.mp4"
+          />
         </div>
         <div className="absolute inset-0 cinematic-overlay"></div>
         <div className="absolute inset-0 hero-gradient"></div>
@@ -77,6 +72,29 @@ export default function Hero() {
           </a>
         </motion.div>
       </div>
+
+      {/* Video Modal */}
+      {isVideoModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-8 backdrop-blur-sm">
+          <button 
+            onClick={() => setIsVideoModalOpen(false)}
+            className="absolute top-6 right-6 text-white bg-white/10 hover:bg-white/30 p-2 rounded-full transition-all z-[101]"
+            aria-label="Close modal"
+          >
+            <span className="material-icons">close</span>
+          </button>
+          <div className="w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl relative z-[100]">
+            <video 
+              controls 
+              autoPlay 
+              className="w-full h-full object-cover"
+              src="https://res.cloudinary.com/dhgu45hvi/video/upload/v1773546987/Mascot_Introduction_Video_Creation_jseosd.mp4"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
