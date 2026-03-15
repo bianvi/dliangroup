@@ -13,19 +13,19 @@ export default function ProductionHouse() {
       title: "TVC Production",
       category: "TV Commercials",
       desc: "High-stakes commercial production for global brands. We bridge the gap between creative vision and market-leading execution.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKj5sjndAAuTZBz-Jn1NoDzj2U9rQRrptvLV88HhSHOrVP1aLTtbR0cTsOFkQceDdkwe1AXmHrfLVu69EdcXtPufHETklC3Fn3w7pW6PkgW0hnTEdINm1xKn21NKwx3WCPKgd0Z6e9xbeL8g-7QMVs2kU2J5DPXUD9dK1LCdai9kO33rkEwGttD_NqRehGLW4f_2qoWPBFaZUVkkGTg4wkb2nUUUiwhQxtd3KM2UESMCtG01WC3LwRnLYmujWuS00VKHHnJp6cPJ0"
+      image: "/image/Production House/1.jpg"
     },
     {
       title: "Viral Clips",
       category: "Social Media",
       desc: "Fast-paced, high-engagement content for social dominance. Engineered for shareability and algorithmic impact.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuARozPVEsa2WVn_qdAdwRfXxeIwuoA3bdlM2WTLt2yApo58PqOkeSSkKlLeKdzctitl_JOHTMnA2J3k7UJbykhqTeIRPvovYsDIfQ310q5Da5HllCiuOYOpdhCn5Gdn-0-o8ucdYwWXxuW1iFUyHCH_49Jjvm7zEDI_6zKKgAk2Aa9_vVQOf5zB_8vGERpV5zVTjFmAieeiF5mBd7jQTo7IRg3AXp_iU8RZvDF47oc3ZO3MDS-T4XqVn_odQAYuzAx7BXTkVnSDqRU"
+      image: "/image/Production House/2.jpg"
     },
     {
       title: "BTS Gallery",
       category: "Behind the scenes",
       desc: "Showcasing the craftsmanship and energy on set. A deep dive into our technical workflow and creative process.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCHVwMpn2neYHUwJCDNEkNk9FDbViIV_QDDhPvFuRCbl80FuMQNmbJFy_vgklsCvwggo9xkqskEzxhw6lRCxc6sswU6egXcO_fcJl5zCnwJDUX4TBiuhIVLhMEkxzugcdydI33ECG-wFRAysqW5jQfUVrL03iCCRif5YzW969oqqwpOrInTQAWtr1Pi8TAAfcm_r6oIiSSNGzpHOn67HLzC1qzwO0sMc2E7tpg9toc2RpIZDmEzzgxKQolK1FnpDuOzS4KE6aCFg6Q"
+      image: "/image/Production House/3.jpg"
     }
   ];
 
@@ -34,19 +34,19 @@ export default function ProductionHouse() {
       title: "The New Horizon",
       category: "LUXURY AUTOMOTIVE",
       specs: "Resolution: 8K, Camera: RED V-Raptor",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCHVwMpn2neYHUwJCDNEkNk9FDbViIV_QDDhPvFuRCbl80FuMQNmbJFy_vgklsCvwggo9xkqskEzxhw6lRCxc6sswU6egXcO_fcJl5zCnwJDUX4TBiuhIVLhMEkxzugcdydI33ECG-wFRAysqW5jQfUVrL03iCCRif5YzW969oqqwpOrInTQAWtr1Pi8TAAfcm_r6oIiSSNGzpHOn67HLzC1qzwO0sMc2E7tpg9toc2RpIZDmEzzgxKQolK1FnpDuOzS4KE6aCFg6Q"
+      image: "/image/Production House/4.jpg"
     },
     {
       title: "Infinite Connectivity",
       category: "TECH GLOBAL",
       specs: "Resolution: 4K, Camera: Arri Alexa 35",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKj5sjndAAuTZBz-Jn1NoDzj2U9rQRrptvLV88HhSHOrVP1aLTtbR0cTsOFkQceDdkwe1AXmHrfLVu69EdcXtPufHETklC3Fn3w7pW6PkgW0hnTEdINm1xKn21NKwx3WCPKgd0Z6e9xbeL8g-7QMVs2kU2J5DPXUD9dK1LCdai9kO33rkEwGttD_NqRehGLW4f_2qoWPBFaZUVkkGTg4wkb2nUUUiwhQxtd3KM2UESMCtG01WC3LwRnLYmujWuS00VKHHnJp6cPJ0"
+      image: "/image/Production House/5.jpg"
     },
     {
       title: "Street Aesthetics",
       category: "URBAN FASHION",
       specs: "Resolution: 6K, Camera: Sony Venice 2",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB96f2OsokDS2Dwc_ORUZj0OiXjwYkOhQfgDZQyUtf3Ylrl0wyaJwgGcID1aENC7x4ew2HpnLGe9P7EaaSyZ8SR8MG83IRhpuWM6Q5j2_zLqx4W9FD-cH9IdddYLRoRS8ld8SCM7X9Lu2DpvynU1qOD23ywo684wGhSQ4XqQ75-Bw5iSf47RZVdpAYtnh9VU2oxmALNNY3qIpJy-fjbjXzKkXFzKO8PEp3aAcHksvaZufk3nC24Ta2PM43GUsPMNRyojeYfWQVKcWw"
+      image: "/image/Production House/6.jpg"
     }
   ];
 
@@ -258,7 +258,7 @@ export default function ProductionHouse() {
             Our Trusted Partners
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-8 md:gap-x-10 lg:gap-x-12 opacity-50 grayscale">
-            {['token', 'diamond', 'all_inclusive', 'motion_photos_on', 'view_in_ar', 'potted_plant'].map((icon, i) => (
+            {['token', 'diamond', 'all_inclusive', 'motion_photos_on', 'view_in_ar'].map((icon, i) => (
               <div key={i} className="flex items-center justify-center">
                 <span className="material-icons text-6xl text-primary">{icon}</span>
               </div>
