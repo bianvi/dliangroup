@@ -161,12 +161,23 @@ export default function About() {
           </div>
           <div className="order-1 md:order-2 space-y-6">
             <h2 className="text-4xl font-bold text-white">The Dolphin Spirit</h2>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              Our logo—a stylized dolphin within a cosmic sphere—symbolizes our agility in navigating complex creative challenges and our intelligence in applying AI to real-world experiences.
+            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              <strong>D'Lian Connection </strong> harmonizes technology and soul, using VR and AI to amplify nature’s nurturing power. We create joyful, pure engagement where innovation serves as the bridge to authentic human connection.
             </p>
-            <p className="text-lg text-gray-400">
-              Like the dolphin, we move with grace through fluid environments, using sophisticated communication and intelligence to bridge the gap between technology and the organic world.
-            </p>
+            <ul className="text-lg text-gray-400 space-y-6 list-none">
+              <li className="flex items-start">
+                <span className="text-cyan-accent mr-4 mt-1 material-icons">psychology</span>
+                <span><strong className="text-white font-medium">Nature-First:</strong> The environment is our ultimate inspiration; we aim to restore the bond between the soul and the natural world.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-cyan-accent mr-4 mt-1 material-icons">pool</span>
+                <span><strong className="text-white font-medium">Agile Intelligence:</strong> Like the dolphin, we navigate creative frontiers with grace, prioritizing emotional resonance and clear communication.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-cyan-accent mr-4 mt-1 material-icons">devices</span>
+                <span><strong className="text-white font-medium">Technology as an Amplifier:</strong> AI and VR are tools, not the destination. They elevate experiences to the next level while keeping true connection at the core.</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -222,17 +233,17 @@ export default function About() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { role: "Lead Producer", name: "Executive Vision", desc: "Architecting the strategic vision and high-level client partnerships." },
-              { role: "Digital Artist", name: "Creative Lead", desc: "Defining the visual language and aesthetic integrity." },
-              { role: "Technologist", name: "Tech Director", desc: "Engineering the backend complexity and AI systems." },
-              { role: "Operations Producer", name: "Project Head", desc: "Ensuring operational excellence and precision delivery." }
+              { role: "Lead Producer", name: "Executive Vision", image: "/image/Executive Vision.png", desc: "Architecting the strategic vision and high-level client partnerships." },
+              { role: "Digital Artist", name: "Creative Lead", image: "/image/Creative lead.png", desc: "Defining the visual language and aesthetic integrity." },
+              { role: "Technologist", name: "Tech Director", image: "/image/Tech Director.png", desc: "Engineering the backend complexity and AI systems." },
+              { role: "Operations Producer", name: "Project Head", image: "/image/Project Head.png", desc: "Ensuring operational excellence and precision delivery." }
             ].map((member, i) => (
               <div key={i} className="group">
-                <div className="aspect-[3/4] overflow-hidden rounded-xl mb-4 bg-gray-900 grayscale group-hover:grayscale-0 transition-all duration-500">
+                <div className="aspect-[3/4] overflow-hidden rounded-xl mb-4 bg-gray-900 group-hover:grayscale-0 transition-all duration-500">
                   <img 
                     alt={member.role} 
-                    className="w-full h-full object-cover grayscale contrast-125" 
-                    src={`https://picsum.photos/seed/${member.role}/600/800`}
+                    className="w-full h-full object-cover" 
+                    src={member.image}
                     referrerPolicy="no-referrer"
                   />
                 </div>
