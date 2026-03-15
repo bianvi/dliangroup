@@ -1,10 +1,80 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import Contact from '../../../components/Contact';
 
 export default function EventOrganization() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentLaunchIndex, setCurrentLaunchIndex] = useState(0);
+  const [currentArtIndex, setCurrentArtIndex] = useState(0);
+
+  const fashionShowImages = [
+    "/image/Fashion Show/1.jpg",
+    "/image/Fashion Show/2.jpg",
+    "/image/Fashion Show/3.jpg",
+    "/image/Fashion Show/4.jpg",
+    "/image/Fashion Show/5.jpg",
+  ];
+
+  const launchEventImages = [
+    "/image/Launch Event/1.JPG",
+    "/image/Launch Event/2.jpg",
+    "/image/Launch Event/3.jpg",
+    "/image/Launch Event/4.jpg",
+    "/image/Launch Event/5.jpg",
+    "/image/Launch Event/6.jpg",
+    "/image/Launch Event/7.jpg",
+    "/image/Launch Event/8.jpg",
+    "/image/Launch Event/9.jpg",
+    "/image/Launch Event/10.jpg",
+  ];
+
+  const artExhibitionImages = [
+    "/image/Art Exhibition/1.jpg",
+    "/image/Art Exhibition/2.jpg",
+    "/image/Art Exhibition/3.jpg",
+    "/image/Art Exhibition/4.jpg",
+    "/image/Art Exhibition/5.jpg",
+  ];
+
+  const [fashionInteraction, setFashionInteraction] = useState(0);
+  const [launchInteraction, setLaunchInteraction] = useState(0);
+  const [artInteraction, setArtInteraction] = useState(0);
+
+  const nextImage = () => { setCurrentImageIndex((prev) => (prev + 1) % fashionShowImages.length); setFashionInteraction(Date.now()); };
+  const prevImage = () => { setCurrentImageIndex((prev) => (prev - 1 + fashionShowImages.length) % fashionShowImages.length); setFashionInteraction(Date.now()); };
+  const setFashionIndex = (idx: number) => { setCurrentImageIndex(idx); setFashionInteraction(Date.now()); };
+
+  const nextLaunch = () => { setCurrentLaunchIndex((prev) => (prev + 1) % launchEventImages.length); setLaunchInteraction(Date.now()); };
+  const prevLaunch = () => { setCurrentLaunchIndex((prev) => (prev - 1 + launchEventImages.length) % launchEventImages.length); setLaunchInteraction(Date.now()); };
+  const setLaunchIndex = (idx: number) => { setCurrentLaunchIndex(idx); setLaunchInteraction(Date.now()); };
+
+  const nextArt = () => { setCurrentArtIndex((prev) => (prev + 1) % artExhibitionImages.length); setArtInteraction(Date.now()); };
+  const prevArt = () => { setCurrentArtIndex((prev) => (prev - 1 + artExhibitionImages.length) % artExhibitionImages.length); setArtInteraction(Date.now()); };
+  const setArtIndex = (idx: number) => { setCurrentArtIndex(idx); setArtInteraction(Date.now()); };
+
+  useEffect(() => {
+    const timerFashion = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % fashionShowImages.length);
+    }, 10000);
+    return () => clearInterval(timerFashion);
+  }, [fashionShowImages.length, fashionInteraction]);
+
+  useEffect(() => {
+    const timerLaunch = setInterval(() => {
+      setCurrentLaunchIndex((prev) => (prev + 1) % launchEventImages.length);
+    }, 10000);
+    return () => clearInterval(timerLaunch);
+  }, [launchEventImages.length, launchInteraction]);
+
+  useEffect(() => {
+    const timerArt = setInterval(() => {
+      setCurrentArtIndex((prev) => (prev + 1) % artExhibitionImages.length);
+    }, 10000);
+    return () => clearInterval(timerArt);
+  }, [artExhibitionImages.length, artInteraction]);
+
   const steps = [
     {
       num: "01",
@@ -23,7 +93,7 @@ export default function EventOrganization() {
     },
     {
       num: "04",
-      title: "Aftermovie",
+      title: "Recap Project",
       desc: "Capturing the energy for digital distribution. High-end cinematography to ensure the event lives on forever."
     }
   ];
@@ -86,13 +156,37 @@ export default function EventOrganization() {
           viewport={{ once: true }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
         >
-          <div className="lg:col-span-7 overflow-hidden rounded-2xl">
+          <div className="lg:col-span-7 overflow-hidden rounded-2xl relative group">
             <img
               alt="Fashion Show Lighting"
-              className="w-full aspect-[16/9] object-cover hover:scale-105 transition-transform duration-700"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKnoxRUd4j6TT7TZf7mLgAgaJaSQs-F216uv7Lfk7awFqD3ioHP4oeJEPEXcqud9A21zkKHJKMcUAcaAJ9W0ZAXJlocrqnMXeLDOziP6wOThM_SDPRvS-XSSi2Zwv1FTCdXDmWGpfJe4KJRZmioPwS2epyIBzhL5crLbWM65LSfMTz-eMUA6JdwfccFM2ADFyA6T44LYOAPlykoecOvXvQJSA0bRuEAs1-JAls3U_0YVW7nCpakiDTSuaYSTauZRto2hzdXOyg6Sw"
-              referrerPolicy="no-referrer"
+              className="w-full aspect-[16/9] object-cover transition-transform duration-700"
+              src={fashionShowImages[currentImageIndex]}
             />
+            
+            <button
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 hover:text-cyan-accent text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all"
+            >
+              <span className="material-icons">chevron_left</span>
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 hover:text-cyan-accent text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all"
+            >
+              <span className="material-icons">chevron_right</span>
+            </button>
+            
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              {fashionShowImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setFashionIndex(idx)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    idx === currentImageIndex ? 'bg-cyan-accent w-4' : 'bg-white/50 hover:bg-white/80'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
           <div className="lg:col-span-5 flex flex-col justify-center">
             <span className="text-cyan-accent font-bold tracking-widest uppercase mb-4">01. Production</span>
@@ -112,18 +206,42 @@ export default function EventOrganization() {
         >
           <div className="lg:col-span-5 order-2 lg:order-1 flex flex-col justify-center">
             <span className="text-cyan-accent font-bold tracking-widest uppercase mb-4">02. Innovation</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Launch Events</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Launch Events & Activation</h2>
             <p className="text-lg text-gray-300 leading-relaxed">
               Creating high-impact product reveals through kinetic technology and architectural staging. We don’t just announce products; we orchestrate moments of awe that resonate across global digital networks and physical audiences alike.
             </p>
           </div>
-          <div className="lg:col-span-7 order-1 lg:order-2 overflow-hidden rounded-2xl">
+          <div className="lg:col-span-7 order-1 lg:order-2 overflow-hidden rounded-2xl relative group">
             <img
               alt="Product Launch Technology"
-              className="w-full aspect-[16/9] object-cover hover:scale-105 transition-transform duration-700"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgCpwVY7ZSfxXFl0y1hI5bm5e_Zag6JCvLwoao2fDoetOoqyWF9_fJTA7J_jCJJU5S-DymkFXJtB0gSKKyCU095c2CUbp38YkFa9Hqen10KKHt6IYMxyTYvOsVv_FwYlo25IoqM0ht4wa2cIpSm3PuOgIVaFf7hr1yCDyvWa87knsoRayvuwzJObCOcKMRBJ6400mQoyisLkMP0s7sCCbVVayAiKUFk5HN7uBRiGBra3jizq0fngaXEiU4UMA_lHoXAX2peiHxRkY"
-              referrerPolicy="no-referrer"
+              className="w-full aspect-[16/9] object-cover transition-transform duration-700"
+              src={launchEventImages[currentLaunchIndex]}
             />
+            
+            <button
+              onClick={prevLaunch}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 hover:text-cyan-accent text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all"
+            >
+              <span className="material-icons">chevron_left</span>
+            </button>
+            <button
+              onClick={nextLaunch}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 hover:text-cyan-accent text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all"
+            >
+              <span className="material-icons">chevron_right</span>
+            </button>
+            
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 flex-wrap justify-center w-[80%]">
+              {launchEventImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setLaunchIndex(idx)}
+                  className={`h-2 rounded-full transition-all ${
+                    idx === currentLaunchIndex ? 'bg-cyan-accent w-4' : 'bg-white/50 hover:bg-white/80 w-2'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -134,13 +252,37 @@ export default function EventOrganization() {
           viewport={{ once: true }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
         >
-          <div className="lg:col-span-7 overflow-hidden rounded-2xl">
+          <div className="lg:col-span-7 overflow-hidden rounded-2xl relative group">
             <img
               alt="Curated Art Exhibition"
-              className="w-full aspect-[16/9] object-cover hover:scale-105 transition-transform duration-700"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD03VCYpxnG7p6hLmoZPYqP9TrpL3dvuRaIQvvnvVTVQ17aocXc6XNAgh07MbWgJCCj6r0uI2sDHTP1a39WuGk_PIAVxixlLzplIfftM38mOVjJDh2ZnWVTUSt7Ddly9TkvZb8uxKEGVa_GhNhhHsMS-CeSaaotkb47iME5VRU9D2kSsjlEvBuQg1bGGSg546J22CWCXytrDRn-4Ar5K9kYs6pgAxmrTfgh12V7HwsC22-htL3R9qCDT1PlqeZ4XEqeIDQAmG09vA"
-              referrerPolicy="no-referrer"
+              className="w-full aspect-[16/9] object-cover transition-transform duration-700"
+              src={artExhibitionImages[currentArtIndex]}
             />
+            
+            <button
+              onClick={prevArt}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 hover:text-cyan-accent text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all"
+            >
+              <span className="material-icons">chevron_left</span>
+            </button>
+            <button
+              onClick={nextArt}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 hover:text-cyan-accent text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all"
+            >
+              <span className="material-icons">chevron_right</span>
+            </button>
+            
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              {artExhibitionImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setArtIndex(idx)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    idx === currentArtIndex ? 'bg-cyan-accent w-4' : 'bg-white/50 hover:bg-white/80'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
           <div className="lg:col-span-5 flex flex-col justify-center">
             <span className="text-cyan-accent font-bold tracking-widest uppercase mb-4">03. Curation</span>
