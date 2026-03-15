@@ -19,6 +19,9 @@
   body {
     @apply bg-background-dark text-white font-sans antialiased;
   }
+  button, a {
+    cursor: pointer;
+  }
 }
 
 @layer components {
