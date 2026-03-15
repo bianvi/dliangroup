@@ -7,7 +7,7 @@ export default function Hero() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center pt-24 md:pt-32">
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center pt-24 pb-24 md:pt-32">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0">
           <video 
@@ -61,15 +61,21 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-8"
+          className="flex flex-col sm:flex-row items-center justify-center gap-8 py-8"
         >
           <a href="#contact" className="group relative primary-glow-btn w-full sm:w-auto px-12 py-5 bg-gradient-to-r from-accent-blue to-cyan-accent text-white rounded-full font-bold text-lg text-center">
             Book a Consultation
           </a>
-          <a href="#" className="group w-full sm:w-auto px-12 py-5 border border-white/20 backdrop-blur-sm rounded-full font-bold text-lg flex items-center justify-center gap-3 hover:bg-white/10 transition-all duration-300">
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              setIsVideoModalOpen(true);
+            }} 
+            className="group primary-glow-btn w-full sm:w-auto px-12 py-5 border border-white/20 backdrop-blur-sm rounded-full font-bold text-lg flex items-center justify-center gap-3"
+          >
             <span className="material-icons text-white/60 group-hover:text-cyan-accent transition-colors">play_circle_filled</span>
             Watch Showreel
-          </a>
+          </button>
         </motion.div>
       </div>
 
