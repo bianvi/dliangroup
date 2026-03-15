@@ -57,13 +57,16 @@ export default function Contact() {
               </div>
             </div>
             
-            <div className="flex items-center gap-6 group">
-              <div className="w-12 h-12 rounded-full bg-deep-navy/30 border border-white/10 flex items-center justify-center group-hover:border-cyan-accent transition-colors">
+            <div className="flex items-start gap-6 group">
+              <div className="w-12 h-12 shrink-0 rounded-full bg-deep-navy/30 border border-white/10 flex items-center justify-center group-hover:border-cyan-accent transition-colors mt-1">
                 <span className="material-icons text-cyan-accent">call</span>
               </div>
-              <div>
+              <div className="space-y-2">
                 <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-1">Call Us</p>
-                <p className="text-lg font-medium">+1 (555) 123-4567</p>
+                <div className="space-y-1">
+                  <p className="text-lg font-medium flex items-center gap-2"><span className="text-sm text-white/60 w-28">WhatsApp:</span> +84 984807169</p>
+                  <p className="text-lg font-medium flex items-center gap-2"><span className="text-sm text-white/60 w-28">Zalo/Wechat:</span> +84 903423135</p>
+                </div>
               </div>
             </div>
 

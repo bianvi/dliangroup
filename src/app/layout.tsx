@@ -41,7 +41,9 @@ export default function RootLayout({
 
           {/* WhatsApp FAB */}
           <a
-            href="#"
+            href="https://wa.me/84984807169"
+            target="_blank"
+            rel="noopener noreferrer"
             className="fixed bottom-8 right-8 w-16 h-16 bg-[#00A884] rounded-full flex items-center justify-center z-[100] shadow-2xl shadow-[#00A884]/40 group hover:scale-110 transition-transform"
           >
             <svg className="w-8 h-8 fill-white" viewBox="0 0 24 24">
