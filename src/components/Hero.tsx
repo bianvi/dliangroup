@@ -48,9 +48,9 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="space-y-8 mb-16"
         >
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[1.02] tracking-tight text-white drop-shadow-2xl">
+          {/* <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[1.02] tracking-tight text-white drop-shadow-2xl">
             Create immersive <span className="gradient-text">experiences</span> <br className="hidden md:block"/> that enhance emotions
-          </h1>
+          </h1> */}
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-normal leading-relaxed drop-shadow-lg">
             Transforming spaces through AI innovation and high-fashion aesthetics. 
             From couture runways to professional media production, we merge digital frontiers with human connection.
