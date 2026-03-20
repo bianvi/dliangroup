@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, Maximize2, X } from 'lucide-react';
+import { Play, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface MediaItem {
   type: 'image' | 'video' | 'youtube';
@@ -67,38 +67,90 @@ const showcaseMedia: MediaItem[] = [
 ];
 
 export default function VisualGallery() {
-  const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === 'ArrowLeft') {
+        setSelectedIndex((selectedIndex - 1 + showcaseMedia.length) % showcaseMedia.length);
+      } else if (e.key === 'ArrowRight') {
+        setSelectedIndex((selectedIndex + 1) % showcaseMedia.length);
+      } else if (e.key === 'Escape') {
+        setSelectedIndex(null);
+      }
+    };
+
+    if (selectedIndex !== null) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex]);
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex - 1 + showcaseMedia.length) % showcaseMedia.length);
+    }
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex + 1) % showcaseMedia.length);
+    }
+  };
+
+  const selectedMedia = selectedIndex !== null ? showcaseMedia[selectedIndex] : null;
+
   const lightboxContent = (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {selectedMedia && (
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[10000] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-4 md:p-12 lg:p-24"
-          onClick={() => setSelectedMedia(null)}
+          onClick={() => setSelectedIndex(null)}
         >
+          {/* Close Button */}
           <button 
               onClick={(e) => {
                 e.stopPropagation();
-                setSelectedMedia(null);
+                setSelectedIndex(null);
               }}
               className="absolute top-8 right-8 text-white hover:text-cyan-accent transition-all z-[10001] bg-black/40 hover:bg-black/60 p-2 rounded-full border border-white/20"
               aria-label="Close Lightbox"
           >
             <X size={32} />
           </button>
+
+          {/* Navigation Controls */}
+          <button 
+            onClick={handlePrev}
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/40 hover:text-cyan-accent transition-all z-[10001] bg-white/5 hover:bg-white/10 p-4 rounded-full border border-white/10 backdrop-blur-md"
+          >
+            <ChevronLeft size={40} />
+          </button>
+
+          <button 
+            onClick={handleNext}
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/40 hover:text-cyan-accent transition-all z-[10001] bg-white/5 hover:bg-white/10 p-4 rounded-full border border-white/10 backdrop-blur-md"
+          >
+            <ChevronRight size={40} />
+          </button>
           
           <motion.div 
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
+            key={selectedMedia.url}
+            initial={{ scale: 0.9, opacity: 0, x: 20 }}
+            animate={{ scale: 1, opacity: 1, x: 0 }}
+            exit={{ scale: 0.9, opacity: 0, x: -20 }}
+            transition={{ duration: 0.4 }}
             className="relative w-full h-full flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
@@ -121,12 +173,18 @@ export default function VisualGallery() {
           </motion.div>
           
           <motion.div 
+            key={`${selectedMedia.title}-info`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="mt-8 text-center"
           >
               <div className="text-cyan-accent text-xs font-bold uppercase tracking-[0.4em] mb-2">{selectedMedia.category}</div>
-              <h3 className="text-3xl font-light tracking-widest text-white uppercase">{selectedMedia.title}</h3>
+              <h3 className="text-2xl md:text-3xl font-light tracking-widest text-white uppercase">{selectedMedia.title}</h3>
+              {selectedIndex !== null && (
+                <div className="text-white/30 text-[10px] tracking-widest uppercase mt-4">
+                  {selectedIndex + 1} / {showcaseMedia.length}
+                </div>
+              )}
           </motion.div>
         </motion.div>
       )}
@@ -169,7 +227,7 @@ export default function VisualGallery() {
               className={`relative overflow-hidden group rounded-3xl border border-white/5 bg-zinc-900 cursor-pointer ${
                 i % 4 === 0 ? 'lg:col-span-2' : ''
               }`}
-              onClick={() => setSelectedMedia(item)}
+              onClick={() => setSelectedIndex(i)}
               onMouseEnter={(e) => {
                 const video = e.currentTarget.querySelector('video');
                 if (video) video.play().catch(() => {});

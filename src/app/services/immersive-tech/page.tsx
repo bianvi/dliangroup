@@ -3,17 +3,35 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, Maximize2, X } from 'lucide-react';
+import { Play, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Contact from '../../../components/Contact';
 import VisualGallery from '../../../components/VisualGallery';
 
 export default function ImmersiveTech() {
-  const [selectedCaseMedia, setSelectedCaseMedia] = useState<{ type: string, src: string, label: string } | null>(null);
+  const [selectedCaseMediaIndex, setSelectedCaseMediaIndex] = useState<number | null>(null);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedCaseMediaIndex === null) return;
+      if (e.key === 'ArrowLeft') {
+        setSelectedCaseMediaIndex((prev) => (prev !== null ? (prev - 1 + caseStudyMedia.length) % caseStudyMedia.length : null));
+      } else if (e.key === 'ArrowRight') {
+        setSelectedCaseMediaIndex((prev) => (prev !== null ? (prev + 1) % caseStudyMedia.length : null));
+      } else if (e.key === 'Escape') {
+        setSelectedCaseMediaIndex(null);
+      }
+    };
+
+    if (selectedCaseMediaIndex !== null) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedCaseMediaIndex]);
 
   const labExperiments = [
     {
@@ -37,7 +55,7 @@ export default function ImmersiveTech() {
     {
       id: "Exp_04",
       title: "Haptic Feedback",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA3XnT_vk7MicvOODCXT3Mkv0Ob2scq_GfH9iJYah5ATvOUgk9GRIL6YG6XWsM8N8hSn7jf0FaDPWQR_ACF_Fc16dGDWciC2PFsHv-fIgntzOAkRs-qaHVzLIVdo0ddAH_CN2ds85R18qpZstYyf5jks67Dt_I9PrrFT_jCBlalYqXKwXQ1YX5ZgHBpIY8zJkznZNNVjl-p7kQ9FYyP9ObatwkwC_YXKU9JXnt_zzo6H1SXfVTZfBGxojMxeCjZonpGNPzNoV8D4IY",
+      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA3XnT_vk7MicvOODCXT3Mkv0Ob2scq_GfH9iJYah5ATvOUgk9GRIL6YG6XWsM8N8hSn7jf0FaDPWQR_ACF_Fc16dGDWciC2PFsHv-fIgntzOAkRs-qaHVzLIVdo0ddAH_CN2ds85R18qpZstYyf5jks67Dt_I9PrrFT_jCBlalYqXKwXQ1YX5ZgHBpIY8zJkznZNNVjl-p7kQ9FYyP9ObatwkwC_YXKU9JXnt_zzo6H1SXfVTZfBGojMxeCjZonpGNPzNoV8D4IY",
       desc: "Bio Reactive Experiment"
     }
   ];
@@ -71,6 +89,22 @@ export default function ImmersiveTech() {
     { type: 'image', src: '/image/AR-VR/1.png', label: 'Interface' },
     { type: 'video', src: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1773565367/Picture_11_jidcn0.mp4', label: 'Simulation' }
   ];
+
+  const handleCaseMediaPrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedCaseMediaIndex !== null) {
+        setSelectedCaseMediaIndex((selectedCaseMediaIndex - 1 + caseStudyMedia.length) % caseStudyMedia.length);
+    }
+  };
+
+  const handleCaseMediaNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedCaseMediaIndex !== null) {
+        setSelectedCaseMediaIndex((selectedCaseMediaIndex + 1) % caseStudyMedia.length);
+    }
+  };
+
+  const selectedCaseMedia = selectedCaseMediaIndex !== null ? caseStudyMedia[selectedCaseMediaIndex] : null;
 
   return (
     <div className="bg-black text-white overflow-x-hidden">
@@ -178,7 +212,7 @@ export default function ImmersiveTech() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: i * 0.1, duration: 0.8 }}
-                        onClick={() => setSelectedCaseMedia(media)}
+                        onClick={() => setSelectedCaseMediaIndex(i)}
                         onMouseEnter={(e) => {
                             const video = e.currentTarget.querySelector('video');
                             if (video) video.play().catch(() => {});
@@ -238,22 +272,43 @@ export default function ImmersiveTech() {
       {/* Case Study Modal Portal */}
       {isMounted && selectedCaseMedia && createPortal(
           <div className="fixed inset-0 z-[10000] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-4 md:p-12 lg:p-24" 
-               onClick={() => setSelectedCaseMedia(null)}>
+               onClick={() => setSelectedCaseMediaIndex(null)}>
+              
+              {/* Close Button */}
               <button 
-                  onClick={() => setSelectedCaseMedia(null)}
+                  onClick={() => setSelectedCaseMediaIndex(null)}
                   className="absolute top-8 right-8 text-white hover:text-cyan-accent transition-all z-[10001] bg-black/40 hover:bg-black/60 p-2 rounded-full border border-white/20"
               >
                   <X size={32} />
               </button>
+
+              {/* Navigation Controls */}
+              <button 
+                onClick={handleCaseMediaPrev}
+                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/40 hover:text-cyan-accent transition-all z-[10001] bg-white/5 hover:bg-white/10 p-4 rounded-full border border-white/10 backdrop-blur-md"
+              >
+                <ChevronLeft size={40} />
+              </button>
+
+              <button 
+                onClick={handleCaseMediaNext}
+                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/40 hover:text-cyan-accent transition-all z-[10001] bg-white/5 hover:bg-white/10 p-4 rounded-full border border-white/10 backdrop-blur-md"
+              >
+                <ChevronRight size={40} />
+              </button>
+
               <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
                   {selectedCaseMedia.type === 'video' ? (
-                      <video src={selectedCaseMedia.src} autoPlay controls className="max-w-full max-h-full object-contain rounded-xl shadow-2xl" />
+                      <video key={selectedCaseMedia.src} src={selectedCaseMedia.src} autoPlay controls className="max-w-full max-h-full object-contain rounded-xl shadow-2xl" />
                   ) : (
-                      <img src={selectedCaseMedia.src} className="max-w-full max-h-full object-contain rounded-xl shadow-2xl" alt={selectedCaseMedia.label} />
+                      <img key={selectedCaseMedia.src} src={selectedCaseMedia.src} className="max-w-full max-h-full object-contain rounded-xl shadow-2xl" alt={selectedCaseMedia.label} />
                   )}
               </div>
               <div className="mt-8 text-center">
                   <h3 className="text-2xl font-light tracking-widest text-white uppercase">{selectedCaseMedia.label}</h3>
+                  <div className="text-white/30 text-[10px] tracking-widest uppercase mt-4">
+                    {selectedCaseMediaIndex !== null ? selectedCaseMediaIndex + 1 : 0} / {caseStudyMedia.length}
+                  </div>
               </div>
           </div>,
           document.body
