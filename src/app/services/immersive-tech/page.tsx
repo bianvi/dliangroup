@@ -1,10 +1,20 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { motion, AnimatePresence } from 'motion/react';
+import { Play, Maximize2, X } from 'lucide-react';
 import Contact from '../../../components/Contact';
+import VisualGallery from '../../../components/VisualGallery';
 
 export default function ImmersiveTech() {
+  const [selectedCaseMedia, setSelectedCaseMedia] = useState<{ type: string, src: string, label: string } | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const labExperiments = [
     {
       id: "Exp_01",
@@ -55,6 +65,13 @@ export default function ImmersiveTech() {
     }
   ];
 
+  const caseStudyMedia = [
+    { type: 'video', src: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1773995515/rR_u5c2wd.mp4', label: 'Main View' },
+    { type: 'video', src: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1773565368/Picture_10_gjyodc.mp4', label: 'Tracking' },
+    { type: 'image', src: '/image/AR-VR/1.png', label: 'Interface' },
+    { type: 'video', src: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1773565367/Picture_11_jidcn0.mp4', label: 'Simulation' }
+  ];
+
   return (
     <div className="bg-black text-white overflow-x-hidden">
       {/* Background Elements */}
@@ -101,45 +118,148 @@ export default function ImmersiveTech() {
       </section>
 
       {/* Case Study Section */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-24">
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <header className="mb-16">
-            <h2 className="text-xs tracking-[0.2em] text-cyan-accent uppercase mb-4">
-              Featured Case Study
-            </h2>
-            <h3 className="text-3xl md:text-4xl font-normal tracking-widest uppercase">
-              Interactive LED Tunnel <br />for Brand X
-            </h3>
-          </header>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Case Study Text Content */}
+            <div>
+                <header className="mb-12">
+                    <motion.h2 
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        className="text-xs tracking-[0.4em] text-cyan-accent uppercase mb-4 font-bold"
+                    >
+                        Featured Case Study
+                    </motion.h2>
+                    <motion.h3 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-4xl md:text-5xl font-normal tracking-widest uppercase leading-tight"
+                    >
+                        Interactive <br />
+                        <span className="gradient-text">LED Tunnel</span> <br />
+                        for Brand X
+                    </motion.h3>
+                </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { num: "01", title: "Challenge", color: "accent-blue", desc: "Creating a 30-meter immersive transit system that maintains high-fidelity visuals while tracking hundreds of unique visitors simultaneously." },
-              { num: "02", title: "Solution", color: "cyan-accent", desc: "180-degree LED walls synced with LiDAR motion sensors. Custom AI algorithms process spatial data in real-time to generate reactive visual ripples." },
-              { num: "03", title: "Result", color: "white", desc: "50,000+ social media mentions in 48 hours. Average dwell time increased by 300% compared to traditional brand installations." }
-            ].map((card, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="testimonial-glass p-10 flex flex-col justify-between group rounded-2xl"
-              >
-                <div>
-                  <div className={`w-12 h-12 mb-8 flex items-center justify-center bg-cyan-accent/10 border border-cyan-accent/30 text-cyan-accent rounded-lg`}>
-                    {card.num}
-                  </div>
-                  <h4 className="text-xl tracking-widest uppercase mb-4">{card.title}</h4>
-                  <p className="text-gray-400 leading-relaxed font-light">
-                    {card.desc}
-                  </p>
+                <div className="space-y-6">
+                    {[
+                    { num: "01", title: "Challenge", color: "accent-blue", desc: "Creating a 30-meter immersive transit system that maintains high-fidelity visuals while tracking hundreds of unique visitors simultaneously." },
+                    { num: "02", title: "Solution", color: "cyan-accent", desc: "180-degree LED walls synced with LiDAR motion sensors. Custom AI algorithms process spatial data in real-time to generate reactive visual ripples." },
+                    { num: "03", title: "Result", color: "white", desc: "50,000+ social media mentions in 48 hours. Average dwell time increased by 300% compared to traditional brand installations." }
+                    ].map((card, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className="testimonial-glass p-8 flex gap-6 group rounded-2xl border border-white/5 hover:border-cyan-accent/20 transition-all duration-500"
+                    >
+                        <div className="text-cyan-accent font-bold text-lg opacity-40 group-hover:opacity-100 transition-opacity">
+                            {card.num}
+                        </div>
+                        <div>
+                            <h4 className="text-md tracking-widest uppercase mb-2 font-bold">{card.title}</h4>
+                            <p className="text-gray-400 leading-relaxed text-sm font-light">
+                                {card.desc}
+                            </p>
+                        </div>
+                    </motion.div>
+                    ))}
                 </div>
-              </motion.div>
-            ))}
+            </div>
+
+            {/* Case Study Multiple Media Showcase */}
+            <div className="grid grid-cols-2 gap-4 lg:h-[600px]">
+                {caseStudyMedia.map((media, i) => (
+                    <motion.div 
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.1, duration: 0.8 }}
+                        onClick={() => setSelectedCaseMedia(media)}
+                        onMouseEnter={(e) => {
+                            const video = e.currentTarget.querySelector('video');
+                            if (video) video.play().catch(() => {});
+                        }}
+                        onMouseLeave={(e) => {
+                            const video = e.currentTarget.querySelector('video');
+                            if (video) {
+                                video.pause();
+                                video.currentTime = 0;
+                            }
+                        }}
+                        className={`relative rounded-3xl overflow-hidden border border-white/10 group shadow-xl cursor-pointer ${
+                            i === 0 ? 'row-span-2' : ''
+                        }`}
+                    >
+                        {media.type === 'video' ? (
+                            <div className="w-full h-full relative">
+                                <video 
+                                    src={media.src}
+                                    muted loop playsInline
+                                    className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
+                                />
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-cyan-accent/20 border border-cyan-accent/50 flex items-center justify-center text-cyan-accent opacity-0 group-hover:opacity-100 transition-all duration-500 scale-50 group-hover:scale-100">
+                                    <Play size={20} fill="currentColor" />
+                                </div>
+                            </div>
+                        ) : (
+                            <img 
+                                src={media.src}
+                                className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
+                                alt={media.label}
+                            />
+                        )}
+                        
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                            <span className="text-[10px] tracking-widest uppercase text-cyan-accent font-bold translate-y-2 group-hover:translate-y-0 transition-transform">
+                                {media.label}
+                            </span>
+                        </div>
+                        
+                        {/* Status bar for first large item */}
+                        {i === 0 && (
+                            <div className="absolute top-4 left-4 right-4 flex justify-between items-center pointer-events-none">
+                                <div className="text-[10px] tracking-[0.2em] uppercase text-cyan-accent font-bold bg-black/40 px-3 py-1 rounded backdrop-blur-sm border border-cyan-accent/20">
+                                    LIVE STREAM
+                                </div>
+                                <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                            </div>
+                        )}
+                    </motion.div>
+                ))}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Case Study Modal Portal */}
+      {isMounted && selectedCaseMedia && createPortal(
+          <div className="fixed inset-0 z-[10000] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-4 md:p-12 lg:p-24" 
+               onClick={() => setSelectedCaseMedia(null)}>
+              <button 
+                  onClick={() => setSelectedCaseMedia(null)}
+                  className="absolute top-8 right-8 text-white hover:text-cyan-accent transition-all z-[10001] bg-black/40 hover:bg-black/60 p-2 rounded-full border border-white/20"
+              >
+                  <X size={32} />
+              </button>
+              <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+                  {selectedCaseMedia.type === 'video' ? (
+                      <video src={selectedCaseMedia.src} autoPlay controls className="max-w-full max-h-full object-contain rounded-xl shadow-2xl" />
+                  ) : (
+                      <img src={selectedCaseMedia.src} className="max-w-full max-h-full object-contain rounded-xl shadow-2xl" alt={selectedCaseMedia.label} />
+                  )}
+              </div>
+              <div className="mt-8 text-center">
+                  <h3 className="text-2xl font-light tracking-widest text-white uppercase">{selectedCaseMedia.label}</h3>
+              </div>
+          </div>,
+          document.body
+      )}
+
+      <VisualGallery />
 
       {/* Innovation Lab */}
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-transparent to-accent-blue/5">

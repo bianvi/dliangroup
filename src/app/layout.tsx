@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FloatingChat from "../components/FloatingChat";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -45,6 +47,13 @@ export default function RootLayout({
           {/* Stardust overlay */}
           <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03] mix-blend-soft-light bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
         </div>
+        {/* <Script 
+          id="crisp-widget" 
+          strategy="afterInteractive" 
+          dangerouslySetInnerHTML={{ 
+            __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="32b0d67e-6518-442b-b2bb-7445bd015854";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();` 
+          }} 
+        /> */}
       </body>
     </html>
   );
