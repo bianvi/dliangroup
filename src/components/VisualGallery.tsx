@@ -14,56 +14,39 @@ interface MediaItem {
 }
 
 const showcaseMedia: MediaItem[] = [
-  {
-    type: 'image',
-    url: '/image/AR-VR/1.png',
-    title: 'Precision Capture',
-    category: 'Spatial Visualization'
-  },
-  {
-    type: 'video',
-    url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1773995515/rR_u5c2wd.mp4',
-    title: 'Immersive Environment',
-    category: 'Motion Design'
-  },
-  {
-    type: 'image',
-    url: '/image/AR-VR/2.jpg',
-    title: 'Neural Link',
-    category: 'VR Interface'
-  },
-  {
-    type: 'youtube',
-    url: 'uA9z3Q0Mszs',
-    title: 'Future Tech #1',
-    category: 'Social Highlight',
-    thumbnail: 'https://img.youtube.com/vi/uA9z3Q0Mszs/maxresdefault.jpg'
-  },
-  {
-    type: 'image',
-    url: '/image/AR-VR/3.jpg',
-    title: 'Spatial Cloud',
-    category: 'AR Overlay'
-  },
-  {
-    type: 'youtube',
-    url: '5oksH3KGoIg',
-    title: 'Future Tech #2',
-    category: 'Production Short',
-    thumbnail: 'https://img.youtube.com/vi/5oksH3KGoIg/maxresdefault.jpg'
-  },
-  {
-    type: 'video',
-    url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1773565368/Picture_10_gjyodc.mp4',
-    title: 'Core Dynamics',
-    category: 'Technical Demo'
-  },
-  {
-    type: 'video',
-    url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1773565367/Picture_11_jidcn0.mp4',
-    title: 'Digital Twin',
-    category: 'Simulation'
-  }
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774023854/VR_ad91an.mov', title: 'VR Reality', category: 'Immersive VR' },
+  { type: 'image', url: '/image/AR-VR/1.png', title: 'Precision Spatial', category: 'Visualization' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774022367/5480_htfjgr.mp4', title: 'Tech Interface', category: 'Interaction' },
+  { type: 'image', url: '/image/AR-VR/2.jpg', title: 'Neural Link', category: 'VR Interface' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774022367/Ph_q8hosf.mp4', title: 'Motion Capture', category: 'Animation' },
+  { type: 'image', url: '/image/AR-VR/3.jpg', title: 'Spatial Cloud', category: 'AR Overlay' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774022367/AI_goywo8.mp4', title: 'AI Simulation', category: 'Artificial Intelligence' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04219.jpg', title: 'Future Lab', category: 'Environment' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774022047/Chung_3_1_cuokah.mp4', title: 'Holistic Design', category: '3D Space' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04228.jpg', title: 'Technical Blueprint', category: 'Design' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774022047/Chung3_1_x8ract.mp4', title: 'Cyber Dynamics', category: 'Motion' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04235.jpg', title: 'Core Projection', category: 'Hardware' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774021936/VR_DEMO_Home_Future_V2_d74apl.mp4', title: 'Future Living', category: 'VR Experience' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04241.jpg', title: 'Visual Synapse', category: 'Creative' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774021867/VU%CC%83_CA%CC%81T_TU%CC%9BO%CC%9B%CC%80NG_-_LIVE_CONCERT_INNER_ME_-_OFFICIAL_TRAILER_twibft.mp4', title: 'Live Performance', category: 'Event Tech' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04246.jpg', title: 'Interactive Mesh', category: 'Haptics' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774021858/IMG_1089_ngn5ui.mov', title: 'Raw Interaction', category: 'Prototype' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04250.jpg', title: 'Quantum Flow', category: 'Data Viz' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774021856/559_dbwals.mp4', title: 'Dynamic Tracking', category: 'LiDAR' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04252.jpg', title: 'Circuit World', category: 'Network' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774021853/720_smrgeb.mp4', title: 'Vortex Simulation', category: 'Fluid Dynamics' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04269.jpg', title: 'Digital Senses', category: 'Sensors' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774021853/310_adhncy.mp4', title: 'Atmospheric Link', category: 'Cloud Tech' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04276.jpg', title: 'Spatial Echo', category: 'Acoustics' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1773995515/rR_u5c2wd.mp4', title: 'Reactive Tunnel', category: 'Interactive' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04281.jpg', title: 'Virtual Pulse', category: 'Experience' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1773565368/Picture_10_gjyodc.mp4', title: 'Core Motion', category: 'Tracking' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04288.jpg', title: 'Visual Core', category: 'Technology' },
+  { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1773565367/Picture_11_jidcn0.mp4', title: 'Spatial Twin', category: 'Digital Twin' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04294.jpg', title: 'Tech Canvas', category: 'Art' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04301.jpg', title: 'Future Interface', category: 'HCI' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04319.jpg', title: 'Digital Horizon', category: 'Innovation' },
+  { type: 'image', url: '/image/AR-VR/compressed_DSC04329.jpg', title: 'Nexus Space', category: 'Connectivity' }
 ];
 
 export default function VisualGallery() {
@@ -216,8 +199,9 @@ export default function VisualGallery() {
           ></motion.div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[450px] grid-flow-dense">
-          {showcaseMedia.map((item, i) => (
+        <div className="max-h-[1000px] overflow-y-auto overflow-x-hidden pr-4 scrollbar-thin scrollbar-track-white/5 scrollbar-thumb-cyan-accent/20 hover:scrollbar-thumb-cyan-accent/40 rounded-3xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[450px] grid-flow-dense pb-12">
+            {showcaseMedia.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -285,6 +269,7 @@ export default function VisualGallery() {
               </div>
             </motion.div>
           ))}
+          </div>
         </div>
       </div>
 
