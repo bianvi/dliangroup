@@ -66,8 +66,8 @@ export default function About() {
             >
               <img 
                 alt="Creative Innovation" 
-                className="rounded-3xl shadow-2xl" 
-                src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1000"
+                className="rounded-3xl shadow-2xl aspect-[3/2] object-cover" 
+                src="/image/about_us_main.jpg"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
