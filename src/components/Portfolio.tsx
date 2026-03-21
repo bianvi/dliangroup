@@ -24,7 +24,7 @@ export default function Portfolio() {
     if (activeCategory === "VR/AR") return p.category === "Immersive Tech Studio";
     if (activeCategory === "Park Facilities") return p.category === "Amusement Park Facilities";
     return true;
-  }).slice(0, 6);
+  });
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
