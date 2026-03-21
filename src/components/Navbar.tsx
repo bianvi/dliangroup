@@ -29,7 +29,7 @@ export default function Navbar() {
             <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400/40 via-blue-500/30 to-purple-500/40 rounded-[24px] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
             
             <img 
-              src="/image/logo_Dlian.png" 
+              src="/image/logo_simple.png" 
               alt="D'lian Connection Logo" 
               className="relative h-16 w-auto object-contain bg-gradient-to-br from-cyan-300 via-white to-sky-200 rounded-[20px] p-1.5 shadow-[0_15px_35px_-10px_rgba(6,182,212,0.5)] border-2 border-white transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-1"
               referrerPolicy="no-referrer"
