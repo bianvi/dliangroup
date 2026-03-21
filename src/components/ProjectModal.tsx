@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { X } from 'lucide-react';
+import { X, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Project } from '../types';
 
 interface ProjectModalProps {
@@ -13,6 +13,40 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
+  const [selectedGalleryIndex, setSelectedGalleryIndex] = useState<number | null>(null);
+
+  const getYoutubeEmbedUrl = (url: string) => {
+    let videoId = '';
+    if (url.includes('v=')) {
+      videoId = url.split('v=')[1].split('&')[0];
+    } else if (url.includes('youtu.be/')) {
+      videoId = url.split('youtu.be/')[1].split('?')[0];
+    }
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  };
+
+  const isYoutube = (url: string) => url.includes('youtube.com') || url.includes('youtu.be');
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedGalleryIndex === null || !project?.gallery) return;
+      
+      if (e.key === 'ArrowLeft') {
+        setSelectedGalleryIndex((prev) => (prev !== null ? (prev - 1 + project.gallery!.length) % project.gallery!.length : null));
+      } else if (e.key === 'ArrowRight') {
+        setSelectedGalleryIndex((prev) => (prev !== null ? (prev + 1) % project.gallery!.length : null));
+      } else if (e.key === 'Escape') {
+        setSelectedGalleryIndex(null);
+      }
+    };
+
+    if (selectedGalleryIndex !== null) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedGalleryIndex, project?.gallery]);
+
   // Prevent scrolling when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -162,6 +196,120 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                 </div>
               </div>
 
+              {/* Project Media Gallery - Simplified Scrollable Row */}
+              {project.gallery && project.gallery.length > 0 && (
+                <div className="space-y-4">
+                  <h2 className="text-xl font-bold text-white flex items-center">
+                    Project Media
+                    <span className="ml-4 h-0.5 w-16 bg-cyan-accent rounded-full opacity-30"></span>
+                  </h2>
+                  
+                  <div className="relative group/gallery">
+                    <div className="flex gap-4 overflow-x-auto pb-6 snap-x snap-mandatory custom-scrollbar scroll-smooth">
+                      {project.gallery.map((item, i) => (
+                        <button 
+                          key={i} 
+                          onClick={() => setSelectedGalleryIndex(i)}
+                          className="flex-none w-[280px] md:w-[400px] aspect-[16/10] rounded-2xl overflow-hidden bg-black/40 border border-white/10 ring-1 ring-white/5 snap-start shadow-xl transition-all hover:scale-[1.02] hover:border-cyan-accent/50 group/item"
+                        >
+                          {item.type === 'video' ? (
+                            <div className="relative w-full h-full">
+                              {isYoutube(item.url) ? (
+                                <div className="w-full h-full bg-slate-900 flex items-center justify-center">
+                                  <span className="text-white font-bold text-xs">YOUTUBE VIDEO</span>
+                                </div>
+                              ) : (
+                                <video 
+                                  src={item.url} 
+                                  muted loop playsInline
+                                  className="w-full h-full object-cover"
+                                  onMouseEnter={(e) => e.currentTarget.play()}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.pause();
+                                    e.currentTarget.currentTime = 0;
+                                  }}
+                                />
+                              )}
+                              <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover/item:text-cyan-accent transition-colors">
+                                <Play size={16} fill="currentColor" />
+                              </div>
+                            </div>
+                          ) : (
+                            <img 
+                              src={item.url} 
+                              alt={`Gallery ${i + 1}`}
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110"
+                            />
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Lightbox for Gallery Items */}
+              {selectedGalleryIndex !== null && project.gallery && (
+                createPortal(
+                  <div className="fixed inset-0 z-[10001] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-4 md:p-12 lg:p-24" onClick={() => setSelectedGalleryIndex(null)}>
+                    
+                    <button 
+                      onClick={() => setSelectedGalleryIndex(null)}
+                      className="absolute top-8 right-8 text-white hover:text-cyan-accent transition-all z-[10002] bg-white/5 hover:bg-white/10 p-3 rounded-full border border-white/10"
+                    >
+                      <X size={32} />
+                    </button>
+
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); setSelectedGalleryIndex((selectedGalleryIndex - 1 + project.gallery!.length) % project.gallery!.length); }}
+                      className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/40 hover:text-cyan-accent transition-all z-[10002] bg-white/5 hover:bg-white/10 p-4 rounded-full border border-white/10"
+                    >
+                      <ChevronLeft size={40} />
+                    </button>
+
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); setSelectedGalleryIndex((selectedGalleryIndex + 1) % project.gallery!.length); }}
+                      className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/40 hover:text-cyan-accent transition-all z-[10002] bg-white/5 hover:bg-white/10 p-4 rounded-full border border-white/10"
+                    >
+                      <ChevronRight size={40} />
+                    </button>
+
+                    <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={selectedGalleryIndex}
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 1.05 }}
+                          className="w-full h-full flex items-center justify-center"
+                        >
+                          {project.gallery[selectedGalleryIndex].type === 'video' ? (
+                            isYoutube(project.gallery[selectedGalleryIndex].url) ? (
+                              <iframe 
+                                key={project.gallery[selectedGalleryIndex].url}
+                                src={getYoutubeEmbedUrl(project.gallery[selectedGalleryIndex].url)} 
+                                className="w-full md:w-[80vw] aspect-video max-w-full rounded-xl shadow-2xl"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowFullScreen
+                              />
+                            ) : (
+                              <video key={project.gallery[selectedGalleryIndex].url} src={project.gallery[selectedGalleryIndex].url} autoPlay controls className="max-w-full max-h-full object-contain rounded-xl shadow-2xl" />
+                            )
+                          ) : (
+                            <img key={project.gallery[selectedGalleryIndex].url} src={project.gallery[selectedGalleryIndex].url} className="max-w-full max-h-full object-contain rounded-xl shadow-2xl" alt="Gallery Detail" />
+                          )}
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
+
+                    <div className="absolute bottom-8 text-white/30 text-xs font-bold tracking-[0.4em] uppercase">
+                      {selectedGalleryIndex + 1} / {project.gallery.length}
+                    </div>
+                  </div>,
+                  document.body
+                )
+              )}
+
               {/* Project Outcome */}
               <div className="mt-12">
                 <h3 className="text-xl font-bold text-white mb-4">Project Outcome</h3>
@@ -174,7 +322,12 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             {/* Footer CTA */}
             <footer className="p-8 md:px-12 md:pb-12 bg-black/20 flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
-                onClick={onClose}
+                onClick={() => {
+                  onClose();
+                  setTimeout(() => {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 300);
+                }}
                 className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#2563EB] to-[#06B6D4] text-white font-bold rounded-xl hover:scale-105 transition-transform duration-300 shadow-xl shadow-blue-500/20"
               >
                 Start Similar Project

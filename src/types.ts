@@ -15,4 +15,8 @@ export interface Project {
     value: string;
   }[];
   technologies: string[];
+  gallery?: {
+    type: 'image' | 'video';
+    url: string;
+  }[];
 }
