@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
-import { Instagram, Linkedin, Youtube } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Instagram, Linkedin, Youtube, CheckCircle, X as CloseIcon } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import CustomDropdown from './CustomDropdown';
 import { submitInquiry } from '../app/actions/inquiry_action';
 
@@ -23,6 +24,13 @@ export default function Contact() {
   const emailRef = useRef<HTMLInputElement>(null);
   const serviceRef = useRef<HTMLDivElement>(null);
   const briefRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (submitStatus === 'success') {
+      const timer = setTimeout(() => setSubmitStatus(null), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   const services = [
     "Event Organization",
@@ -259,15 +267,45 @@ export default function Contact() {
               ) : 'Send Inquiry'}
             </button>
             
-            {submitStatus === 'success' && (
-              <p className="text-green-400 text-center text-sm font-medium mt-4">Thank you! Your inquiry has been sent.</p>
-            )}
             {submitStatus === 'error' && (
               <p className="text-red-400 text-center text-sm font-medium mt-4">Something went wrong. Please try again later.</p>
             )}
           </form>
         </div>
       </div>
+
+      {/* Success Toast */}
+      <AnimatePresence>
+        {submitStatus === 'success' && (
+          <motion.div 
+            initial={{ opacity: 0, x: 100, y: 0 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            className="fixed top-21 right-8 z-[99999] flex items-center gap-4 bg-[#0A1120] border border-cyan-accent/30 p-4 rounded-2xl shadow-[0_0_30px_rgba(6,182,212,0.2)] backdrop-blur-xl min-w-[320px]"
+          >
+            <div className="w-10 h-10 rounded-full bg-cyan-accent/10 flex items-center justify-center text-cyan-accent">
+              <CheckCircle size={24} />
+            </div>
+            <div className="flex-1">
+              <h4 className="text-white font-bold text-sm uppercase tracking-widest">Success</h4>
+              <p className="text-white/60 text-xs">Your inquiry has been sent successfully!</p>
+            </div>
+            <button 
+              onClick={() => setSubmitStatus(null)}
+              className="text-white/40 hover:text-white p-1"
+            >
+              <CloseIcon size={18} />
+            </button>
+            {/* Progress bar */}
+            <motion.div 
+              initial={{ scaleX: 1 }}
+              animate={{ scaleX: 0 }}
+              transition={{ duration: 5, ease: "linear" }}
+              className="absolute bottom-0 left-0 right-0 h-1 bg-cyan-accent origin-left rounded-b-2xl"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
