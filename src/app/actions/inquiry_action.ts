@@ -3,7 +3,7 @@
 import { neon } from '@neondatabase/serverless';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.SENDER_API_TOKEN);
+const resend = new Resend(process.env.RESEND_API_TOKEN);
 
 export async function submitInquiry(formData: FormData) {
   const data = {
@@ -40,7 +40,7 @@ export async function submitInquiry(formData: FormData) {
 
     // 2. Send Email via Resend
     await resend.emails.send({
-      from: "D'Lian Connection <dlianconnection@gmail.com>",
+      from: "D'Lian System <system@dliangroup.com>",
       to: 'contact@dliangroup.com',
       subject: `New Lead: ${data.service} - ${data.fullName}`,
       replyTo: data.email,
