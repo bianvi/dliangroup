@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Linkedin, Instagram, Youtube } from 'lucide-react';
 import CustomDropdown from '../../components/CustomDropdown';
@@ -14,6 +14,13 @@ export default function ContactPage() {
     budget: '',
     brief: ''
   });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const fullNameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const serviceRef = useRef<HTMLDivElement>(null);
+  const briefRef = useRef<HTMLTextAreaElement>(null);
 
   const services = [
     "High-end Event Production",
@@ -29,10 +36,44 @@ export default function ContactPage() {
     "$1M+"
   ];
 
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.fullName.trim()) newErrors.fullName = 'Full Name is required';
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email Address is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    if (!formData.service) newErrors.service = 'Please select an interested service';
+    if (!formData.brief.trim()) newErrors.brief = 'Project Brief is required';
+    
+    setErrors(newErrors);
+    return newErrors;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry. Our team will contact you shortly.');
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length === 0) {
+      console.log('Form submitted:', formData);
+      alert('Thank you for your inquiry. Our team will contact you shortly.');
+    } else {
+      // Scroll to and focus the first error in order
+      if (newErrors.fullName) {
+        fullNameRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        fullNameRef.current?.focus();
+      } else if (newErrors.email) {
+        emailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        emailRef.current?.focus();
+      } else if (newErrors.service) {
+        serviceRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const toggler = serviceRef.current?.querySelector('[tabindex="0"]') as HTMLElement;
+        toggler?.focus();
+      } else if (newErrors.brief) {
+        briefRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        briefRef.current?.focus();
+      }
+    }
   };
 
   return (
@@ -154,24 +195,30 @@ export default function ContactPage() {
         <div className="w-full md:w-1/2 bg-[#0A1120] p-8 md:p-16 flex items-center justify-center border-l border-white/5">
           <div className="w-full max-w-lg">
             <h2 className="text-3xl font-bold mb-8 text-white">Inquiry Form</h2>
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-cyan-accent/70 ml-1 min-h-[2.5rem] flex items-end pb-1">Full Name</label>
                   <input 
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-cyan-accent focus:bg-white/10 transition-all outline-none text-white placeholder:text-gray-500 rounded-lg"
+                    ref={fullNameRef}
+                    className={`w-full px-4 py-3 bg-white/5 border transition-all outline-none text-white placeholder:text-gray-500 rounded-lg focus:ring-1 focus:ring-cyan-accent ${
+                      errors.fullName ? 'border-red-500 bg-red-500/5' : 'border-white/10 focus:border-cyan-accent focus:bg-white/10'
+                    }`}
                     placeholder="John Doe"
                     required
                     type="text"
-                    onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                    onChange={(e) => {
+                      setFormData({...formData, fullName: e.target.value});
+                      if (errors.fullName) setErrors({...errors, fullName: ''});
+                    }}
                   />
+                  {errors.fullName && <span className="text-red-500 text-xs ml-1">{errors.fullName}</span>}
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-cyan-accent/70 ml-1 min-h-[2.5rem] flex items-end pb-1">Company Name</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-cyan-accent/70 ml-1 min-h-[2.5rem] flex items-end pb-1">Company Name <span className="text-[10px] lowercase opacity-50 ml-1">(Optional)</span></label>
                   <input 
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-cyan-accent focus:bg-white/10 transition-all outline-none text-white placeholder:text-gray-500 rounded-lg"
                     placeholder="D'lian Connection"
-                    required
                     type="text"
                     onChange={(e) => setFormData({...formData, companyName: e.target.value})}
                   />
@@ -181,25 +228,38 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-cyan-accent/70 ml-1 min-h-[2.5rem] flex items-end pb-1">Email Address</label>
                 <input 
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-cyan-accent focus:bg-white/10 transition-all outline-none text-white placeholder:text-gray-500 rounded-lg"
+                  ref={emailRef}
+                  className={`w-full px-4 py-3 bg-white/5 border transition-all outline-none text-white placeholder:text-gray-500 rounded-lg focus:ring-1 focus:ring-cyan-accent ${
+                    errors.email ? 'border-red-500 bg-red-500/5' : 'border-white/10 focus:border-cyan-accent focus:bg-white/10'
+                  }`}
                   placeholder="email@example.com"
                   required
                   type="email"
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  onChange={(e) => {
+                    setFormData({...formData, email: e.target.value});
+                    if (errors.email) setErrors({...errors, email: ''});
+                  }}
+                />
+                {errors.email && <span className="text-red-500 text-xs ml-1">{errors.email}</span>}
+              </div>
+              
+              <div ref={serviceRef}>
+                <CustomDropdown 
+                  label="Interested Service"
+                  options={services}
+                  placeholder="Select a service"
+                  onSelect={(val) => {
+                    setFormData({...formData, service: val});
+                    if (errors.service) setErrors({...errors, service: ''});
+                  }}
+                  required
+                  labelClassName="text-xs font-bold uppercase tracking-widest text-cyan-accent/70 ml-1 min-h-[2.5rem] flex items-end pb-1"
+                  error={errors.service}
                 />
               </div>
               
               <CustomDropdown 
-                label="Interested Service"
-                options={services}
-                placeholder="Select a service"
-                onSelect={(val) => setFormData({...formData, service: val})}
-                required
-                labelClassName="text-xs font-bold uppercase tracking-widest text-cyan-accent/70 ml-1 min-h-[2.5rem] flex items-end pb-1"
-              />
-              
-              <CustomDropdown 
-                label="Project Budget Range (Optional)"
+                label={<span>Project Budget Range <span className="text-[10px] lowercase opacity-50 ml-1 font-normal">(Optional)</span></span>}
                 options={budgets}
                 placeholder="Select range"
                 onSelect={(val) => setFormData({...formData, budget: val})}
@@ -209,12 +269,19 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-cyan-accent/70 ml-1 min-h-[2.5rem] flex items-end pb-1">Tell us about your vision</label>
                 <textarea 
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-cyan-accent focus:bg-white/10 transition-all outline-none text-white placeholder:text-gray-500 resize-none rounded-lg"
+                  ref={briefRef}
+                  className={`w-full px-4 py-3 bg-white/5 border transition-all outline-none text-white placeholder:text-gray-500 resize-none rounded-lg focus:ring-1 focus:ring-cyan-accent ${
+                    errors.brief ? 'border-red-500 bg-red-500/5' : 'border-white/10 focus:border-cyan-accent focus:bg-white/10'
+                  }`}
                   placeholder="Share your ideas with us..."
                   required
                   rows={4}
-                  onChange={(e) => setFormData({...formData, brief: e.target.value})}
+                  onChange={(e) => {
+                    setFormData({...formData, brief: e.target.value});
+                    if (errors.brief) setErrors({...errors, brief: ''});
+                  }}
                 ></textarea>
+                {errors.brief && <span className="text-red-500 text-xs ml-1">{errors.brief}</span>}
               </div>
               
               <button 
