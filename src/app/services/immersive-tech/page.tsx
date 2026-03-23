@@ -33,32 +33,7 @@ export default function ImmersiveTech() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedCaseMediaIndex]);
 
-  const labExperiments = [
-    {
-      id: "Exp_01",
-      title: "Fluid Dynamics",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCNAa4BRxEAw6uBUL7_p57MW14UeJPvI_BTC_lPY4N08-majkBHta6gOpE2FCxJL2SJ5ReJb2jhvGOLiPLgQPJsERacjbgeywKMOdTVmzDD9k4mbtc86gLA7dXxU86oooKgRMZz4J1yn6HQJzAcMRvaYnKEXiRMgS2-_HtsCTONaW7HIU8akXcD9Z4d6LWn-AVpfvuauRvtJE2yFFM2F8wShSGmb75-Vbx4tujSYA_5x0ejA0f6tb0XxHqHPtZ1gzQGk7yMykIN8Ow",
-      desc: "Particle Flow Experiment"
-    },
-    {
-      id: "Exp_02",
-      title: "Neural Mapping",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBNBUgThW5SmfG0Fe4y1dGxlxiS3rIi9tCNhE2pTgFEaSsyU9rYovxUDXLaGkQ3FtE7OqAWdyRdeuehNkWoXwGtpX5fkjV3LEev4UtLyGt-tnasNVLjKQ2K4kgRl_TNY-4fG6sWtlRBbvQH5XyUQ3mI22rEhm8iqzde_8JqxZMWj3D5CC1u9wpKN1HVwPri5v8Sw8BESQ9XoXKcLRSHrh7VlSt7ZW0Q_clVgNmlVY-pIK_6Ri2kiDJMob_WU5_ATwWLBzlnmSn33iE",
-      desc: "Neural Mesh Experiment"
-    },
-    {
-      id: "Exp_03",
-      title: "Spatial Cloud",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAS8CRorZnCN1FDgOVPh4XlL-pJalXFhJzGSyOz8_YDEy78lzzlNsY7lGFI_Y42VfXafKl0jUsMKFfl6lywz9fmKo-oBqubhFlR0yw7J_NA7_Gv23pFUfPbz94Owg54Lx-v3IIn-maJsKozcyO7Q1y155Q5wzZW53t99oC-s7su3b0iaz5fRmO2q1ei5kUG0kxNH6uBdWzSMUmTveJNyjYH4jxBjmJO-ot-GSQ7Wnxmocc7KFZJlfU4UQB2yPhj-rfUYBtzcYQL9ug",
-      desc: "LiDAR Cloud Experiment"
-    },
-    {
-      id: "Exp_04",
-      title: "Haptic Feedback",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA3XnT_vk7MicvOODCXT3Mkv0Ob2scq_GfH9iJYah5ATvOUgk9GRIL6YG6XWsM8N8hSn7jf0FaDPWQR_ACF_Fc16dGDWciC2PFsHv-fIgntzOAkRs-qaHVzLIVdo0ddAH_CN2ds85R18qpZstYyf5jks67Dt_I9PrrFT_jCBlalYqXKwXQ1YX5ZgHBpIY8zJkznZNNVjl-p7kQ9FYyP9ObatwkwC_YXKU9JXnt_zzo6H1SXfVTZfBGojMxeCjZonpGNPzNoV8D4IY",
-      desc: "Bio Reactive Experiment"
-    }
-  ];
+
 
   const techStack = [
     {
@@ -316,48 +291,7 @@ export default function ImmersiveTech() {
 
       <VisualGallery />
 
-      {/* Innovation Lab */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-transparent to-accent-blue/5">
-        <div className="max-w-7xl mx-auto">
-          <header className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <h2 className="text-xs tracking-[0.2em] text-cyan-accent uppercase mb-4">
-                Visual Experiments
-              </h2>
-              <h3 className="text-4xl font-normal tracking-widest uppercase">
-                Innovation Lab
-              </h3>
-            </div>
-            <a className="text-xs tracking-widest uppercase border-b border-cyan-accent text-cyan-accent pb-1 hover:text-white hover:border-white transition-all" href="#">
-              View All Experiments
-            </a>
-          </header>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {labExperiments.map((exp, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative group aspect-square overflow-hidden bg-zinc-900 border border-white/10 rounded-xl"
-              >
-                <img
-                  alt={exp.desc}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
-                  src={exp.image}
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-[10px] tracking-widest uppercase text-cyan-accent">{exp.id}</span>
-                  <span className="text-sm tracking-widest uppercase font-bold">{exp.title}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Tech Stack Section */}
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-24 border-t border-white/5">
