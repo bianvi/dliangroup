@@ -149,7 +149,7 @@ export default function AmusementFacilities() {
       </main>
 
       {/* Quotation Section */}
-      <section className="py-24 px-6 border-t border-white/10 bg-background-dark/50">
+      {/* <section className="py-24 px-6 border-t border-white/10 bg-background-dark/50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -226,7 +226,7 @@ export default function AmusementFacilities() {
             </button>
           </motion.form>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <Contact />
