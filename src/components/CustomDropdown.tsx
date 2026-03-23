@@ -12,10 +12,11 @@ interface CustomDropdownProps {
   required?: boolean;
   labelClassName?: string;
   error?: string;
+  name?: string;
 }
 
 const CustomDropdown = React.forwardRef<HTMLDivElement, CustomDropdownProps>(
-  ({ label, options, placeholder, onSelect, required, labelClassName, error }, ref) => {
+  ({ label, options, placeholder, onSelect, required, labelClassName, error, name }, ref) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -95,25 +96,24 @@ const CustomDropdown = React.forwardRef<HTMLDivElement, CustomDropdownProps>(
           )}
         </AnimatePresence>
         
-        {/* Hidden input for form validation if needed */}
-        {required && (
-          <input 
-            tabIndex={-1}
-            autoComplete="off"
-            style={{ 
-              opacity: 0, 
-              width: '100%', 
-              height: 0, 
-              position: 'absolute', 
-              bottom: 0, 
-              left: 0,
-              pointerEvents: 'none'
-            }}
-            value={selectedOption || ''} 
-            required 
-            onChange={() => {}}
-          />
-        )}
+        {/* Hidden input for form validation and submission */}
+        <input 
+          name={name}
+          tabIndex={-1}
+          autoComplete="off"
+          style={{ 
+            opacity: 0, 
+            width: '100%', 
+            height: 0, 
+            position: 'absolute', 
+            bottom: 0, 
+            left: 0,
+            pointerEvents: 'none'
+          }}
+          value={selectedOption || ''} 
+          required={required}
+          onChange={() => {}}
+        />
       </div>
     );
   }

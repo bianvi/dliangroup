@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { Instagram, Linkedin, Youtube } from 'lucide-react';
 import CustomDropdown from './CustomDropdown';
+import { submitInquiry } from '../app/actions/inquiry_action';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,8 @@ export default function Contact() {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
 
   const fullNameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -50,13 +53,30 @@ export default function Contact() {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = validateForm();
     if (Object.keys(newErrors).length === 0) {
-      console.log('Form submitted:', formData);
-      alert('Thank you for your inquiry. Our team will contact you shortly.');
-      // Reset form if needed or navigate
+      setIsSubmitting(true);
+      setSubmitStatus(null);
+      
+      const formDataObj = new FormData(e.currentTarget as HTMLFormElement);
+      const result = await submitInquiry(formDataObj);
+      
+      setIsSubmitting(false);
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          fullName: '',
+          companyName: '',
+          email: '',
+          service: '',
+          budget: '',
+          brief: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
     } else {
       // Scroll to and focus the first error in order
       if (newErrors.fullName) {
@@ -134,6 +154,8 @@ export default function Contact() {
                 <label className="text-xs font-bold uppercase tracking-widest text-white/40 ml-1 min-h-[2.5rem] flex items-end pb-1">Full Name</label>
                 <input 
                   ref={fullNameRef}
+                  name="fullName"
+                  value={formData.fullName}
                   className={`w-full px-6 py-4 rounded-xl border transition-all text-white outline-none focus:ring-1 focus:ring-cyan-accent ${
                     errors.fullName ? 'border-red-500 bg-red-500/5' : 'border-white/10 bg-white/5 focus:border-cyan-accent'
                   }`}
@@ -150,6 +172,8 @@ export default function Contact() {
               <div className="flex flex-col gap-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-white/40 ml-1 min-h-[2.5rem] flex items-end pb-1">Company Name <span className="text-[10px] lowercase opacity-50 ml-1">(Optional)</span></label>
                 <input 
+                  name="companyName"
+                  value={formData.companyName}
                   className="w-full px-6 py-4 rounded-xl border border-white/10 bg-white/5 focus:border-cyan-accent transition-all text-white outline-none" 
                   placeholder="Brand Studio Inc." 
                   type="text"
@@ -162,6 +186,8 @@ export default function Contact() {
               <label className="text-xs font-bold uppercase tracking-widest text-white/40 ml-1 min-h-[2.5rem] flex items-end pb-1">Email Address</label>
               <input 
                 ref={emailRef}
+                name="email"
+                value={formData.email}
                 className={`w-full px-6 py-4 rounded-xl border transition-all text-white outline-none focus:ring-1 focus:ring-cyan-accent ${
                   errors.email ? 'border-red-500 bg-red-500/5' : 'border-white/10 bg-white/5 focus:border-cyan-accent'
                 }`}
@@ -178,6 +204,7 @@ export default function Contact() {
 
             <div ref={serviceRef}>
               <CustomDropdown 
+                name="service"
                 label="Interested Service"
                 options={services}
                 placeholder="Select a Service"
@@ -191,6 +218,7 @@ export default function Contact() {
               />
             </div>
             <CustomDropdown 
+              name="budget"
               label={<span>Project Budget Range <span className="text-[10px] lowercase opacity-50 ml-1 font-normal">(Optional)</span></span>}
               options={budgets}
               placeholder="Select Budget"
@@ -202,6 +230,8 @@ export default function Contact() {
               <label className="text-xs font-bold uppercase tracking-widest text-white/40 ml-1 min-h-[2.5rem] flex items-end pb-1">Project Brief</label>
               <textarea 
                 ref={briefRef}
+                name="brief"
+                value={formData.brief}
                 className={`w-full px-6 py-4 rounded-xl border transition-all text-white resize-none outline-none focus:ring-1 focus:ring-cyan-accent ${
                   errors.brief ? 'border-red-500 bg-red-500/5' : 'border-white/10 bg-white/5 focus:border-cyan-accent'
                 }`}
@@ -216,9 +246,25 @@ export default function Contact() {
               {errors.brief && <span className="text-red-500 text-xs ml-1">{errors.brief}</span>}
             </div>
 
-            <button className="primary-glow-btn w-full py-5 bg-gradient-to-r from-accent-blue to-cyan-accent text-white rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-[1.02]" type="submit">
-              Send Inquiry
+            <button 
+              className={`primary-glow-btn w-full py-5 bg-gradient-to-r from-accent-blue to-cyan-accent text-white rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`} 
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                  Sending...
+                </>
+              ) : 'Send Inquiry'}
             </button>
+            
+            {submitStatus === 'success' && (
+              <p className="text-green-400 text-center text-sm font-medium mt-4">Thank you! Your inquiry has been sent.</p>
+            )}
+            {submitStatus === 'error' && (
+              <p className="text-red-400 text-center text-sm font-medium mt-4">Something went wrong. Please try again later.</p>
+            )}
           </form>
         </div>
       </div>
