@@ -159,13 +159,8 @@ export default function ContactPage() {
                     icon: "mail"
                   },
                   {
-                    title: "Business & Partnerships",
-                    value: "partnerships@dliangroup.com",
-                    icon: "business_center"
-                  },
-                  {
-                    title: "Global HQ",
-                    value: "123 Innovation Drive, Creative District, [City, Country]",
+                    title: "Office Address",
+                    value: "81 Huỳnh Mẫn Đạt, Thạnh Mỹ Tây, Hồ Chí Minh city",
                     icon: "location_on"
                   },
                   {
@@ -175,7 +170,7 @@ export default function ContactPage() {
                   },
                   {
                     title: "Quick Connect",
-                    value: "WhatsApp/Zalo: +84 XX XXX XXXX",
+                    value: "Zalo: +84 903423135",
                     icon: "chat"
                   }
                 ].map((item, i) => (
@@ -348,9 +343,11 @@ export default function ContactPage() {
             marginHeight={0}
             marginWidth={0}
             scrolling="no"
-            src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Ho%20Chi%20Minh%20City&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244.9550207708384!2d106.70862864205169!3d10.789828220457943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528b2df5c1819%3A0x331e9c23e5cc2373!2zODEgSHXhu7NuaCBN4bqrbiDEkOG6oXQsIFBoxrDhu51uZyAxOSwgQsOsbmggVGjhuqFuaCwgSOG7kyBDaMOtIE1pbmgsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1774280821351!5m2!1sen!2s"
             style={{ filter: "grayscale(100%) invert(90%) contrast(1.2) hue-rotate(200deg)" }}
             width="100%"
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
         <div className="absolute inset-0 pointer-events-none border-t-2 border-[#050B18]"></div>
