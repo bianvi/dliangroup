@@ -21,7 +21,7 @@ import Contact from '../../../components/Contact';
 import ProjectModal from '../../../components/ProjectModal';
 import { projects } from '../../../data/projects';
 
-export default function ConnectBrandsPage() {
+export default function RetailDistributionPage() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
