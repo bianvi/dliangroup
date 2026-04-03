@@ -117,14 +117,14 @@ export default function RetailDistributionPage() {
                 <span className="text-white/50">Empowering Local Business.</span>
               </h3>
               <p className="text-gray-400 text-lg leading-relaxed mb-10 font-light">
-                Headquartered in Hanoi, Hai Dang Phat is a premier provider of seamless, end-to-end import and multichannel distribution services in Vietnam. We combine market intelligence, robust logistics, and deep-rooted networks to deliver value to our international partners and local clients alike.
+                D’Lian Connection delivers more than themed entertainment solutions. Alongside importing and setting up international-standard theme park facilities, we also bridge global supply with local markets. Through our strategic partnership with Hai Đăng Phát, we distribute high-quality imported frozen meats and fruits to local retailers, helping businesses access trusted products while elevating everyday consumer experiences.”
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
                 {[
                   { icon: <MapPin className="text-cyan-accent" />, stat: "3+", label: "Strategic Locations", sub: "Hanoi, HCMC" },
                   { icon: <Warehouse className="text-cyan-accent" />, stat: "Modern", label: "Cold Storage", sub: "& Processing" },
-                  { icon: <Network className="text-cyan-accent" />, stat: "1000+", label: "Distribution", sub: "Points" }
+                  { icon: <Network className="text-cyan-accent" />, stat: "100+ ", label: "Buyers, Whole sellers", sub: "& Retails" }
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col gap-3">
                     <div className="w-12 h-12 rounded-xl bg-cyan-accent/10 border border-cyan-accent/20 flex items-center justify-center mb-2">
@@ -169,13 +169,13 @@ export default function RetailDistributionPage() {
       <section className="relative z-10 py-32 px-6 md:px-12 lg:px-24 bg-white/5">
         <div className="max-w-7xl mx-auto">
           <header className="mb-20 text-center">
-            <h2 className="text-xs tracking-[0.3em] text-cyan-accent uppercase mb-6">Core Pillar 01</h2>
+            <h2 className="text-xs tracking-[0.3em] text-cyan-accent uppercase mb-6">Case Business 01</h2>
             <h3 className="text-4xl md:text-6xl font-normal tracking-tight uppercase mb-8">
               The Heart of Your Menu.<br />
               <span className="gradient-text">Premium Wholesale Food.</span>
             </h3>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed font-light">
-              We are a leading force in the import and wholesale distribution of high-quality proteins and diverse frozen food products across Vietnam. With direct sourcing and specialized processing, we guarantee quality from port to plate.
+              In partnership with Hai Đăng Phát, we are a leading force in the import and wholesale distribution of high-quality proteins and diverse frozen food products across Vietnam. With direct sourcing and specialized processing, we guarantee quality from port to plate.
             </p>
           </header>
 
@@ -262,13 +262,13 @@ export default function RetailDistributionPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-20 mb-24">
             <div className="lg:w-1/2">
-              <h2 className="text-xs tracking-[0.3em] text-cyan-accent uppercase mb-6">Core Pillar 02</h2>
+              <h2 className="text-xs tracking-[0.3em] text-cyan-accent uppercase mb-6">Case Business 02</h2>
               <h3 className="text-4xl md:text-5xl font-normal tracking-tight uppercase mb-8 leading-tight">
                 Elevating Experiences.<br />
                 <span className="text-white/50">Building Vietnam’s Leisure Future.</span>
               </h3>
               <p className="text-gray-400 text-lg leading-relaxed font-light mb-10">
-                Hai Dang Phat is the exclusive/strategic distribution partner for world-class amusement and leisure park facilities, delivering innovation and safety to premier Vietnamese destinations.
+                D'lian Connection is the exclusive/strategic distribution partner for world-class amusement and leisure park facilities, delivering innovation and safety to premier Vietnamese destinations.
               </p>
               <div className="space-y-6">
                 {[
