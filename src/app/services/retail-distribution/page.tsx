@@ -394,17 +394,33 @@ export default function RetailDistributionPage() {
             ))}
           </div>
 
-          {/* Partner Logos Placeholder */}
-          <div className="mt-24 pt-24 border-t border-white/5">
-            <h4 className="text-center text-[10px] tracking-[0.4em] uppercase text-white/30 mb-12">Supply Chain Partners</h4>
-            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale">
-              {/* These would be actual logos in a real app */}
-              <div className="text-2xl font-black tracking-tighter">US BEEF</div>
-              <div className="text-2xl font-black tracking-tighter italic">ANGUS</div>
-              <div className="text-2xl font-black tracking-tighter">CANADA PORK</div>
-              <div className="text-2xl font-black tracking-tighter">AUS MEAT</div>
-              <div className="text-2xl font-black tracking-tighter">EURO FOODS</div>
-            </div>
+        </div>
+      </section>
+
+      {/* STRATEGIC PARTNERS & CLIENTS - WHITE BACKGROUND */}
+      <section className="relative z-10 py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+          <h4 className="text-center text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-20 uppercase font-bold">Strategic Partners & Clients</h4>
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-x-24 md:gap-y-16">
+            {[
+              "https://inrifz8adj9odids.public.blob.vercel-storage.com/partner-logo/1686112609908-z4389546580564_d06813924cdefe7a4f32c4fb22b94f62.jpg?v=2026-04-03",
+              "https://inrifz8adj9odids.public.blob.vercel-storage.com/partner-logo/8b92SUOnecbcqltY6Bdzu070bhPZ57q32VdbFf5G.webp?v=2026-04-03",
+              "https://inrifz8adj9odids.public.blob.vercel-storage.com/partner-logo/H7a1c28c010484aceb4cb2d9d5ec7bb46I.avif?v=2026-04-03",
+              "https://inrifz8adj9odids.public.blob.vercel-storage.com/partner-logo/Shopee.svg.png?v=2026-04-03",
+              "https://inrifz8adj9odids.public.blob.vercel-storage.com/partner-logo/logo-coopmart-compressed.jpg?v=2026-04-03",
+              "https://inrifz8adj9odids.public.blob.vercel-storage.com/partner-logo/minyefun.jpg?v=2026-04-03",
+              "https://inrifz8adj9odids.public.blob.vercel-storage.com/partner-logo/miratorg.png?v=2026-04-03",
+              "https://inrifz8adj9odids.public.blob.vercel-storage.com/partner-logo/tiktok-shop-icon-logo-symbol-free-png.webp?v=2026-04-03"
+            ].map((logo, index) => (
+              <div key={index} className="h-12 md:h-16 flex items-center justify-center grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                <img 
+                  src={logo} 
+                  alt={`Partner ${index + 1}`} 
+                  className="h-full block w-auto object-contain hover:scale-110 transition-transform duration-300"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -418,7 +434,7 @@ export default function RetailDistributionPage() {
             <span className="gradient-text">Let's Connect.</span>
           </h3>
           <p className="text-gray-400 text-lg leading-relaxed font-light">
-            Whether you are an international brand seeking a strategic importer or a local business looking for a reliable wholesale partner, Hai Dang Phat is ready to discuss how we can accelerate your growth.
+            Whether you are an international brand seeking a strategic importer or a local business looking for a reliable wholesale partner, D’Lian Connection is ready to discuss how we can accelerate your growth.
           </p>
         </div>
         <Contact />
