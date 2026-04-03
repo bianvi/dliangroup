@@ -24,7 +24,7 @@ const services = [
     link: "/services/immersive-tech"
   },
   {
-    title: "Retail distribution in Vietnam",
+    title: "Retail Distribution in Vietnam",
     icon: "architecture",
     items: ["Connect Global Brands", "Playground Design"],
     link: "/services/retail-distribution"

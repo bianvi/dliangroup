@@ -45,42 +45,23 @@ export default function RetailDistributionPage() {
 
       {/* SECTION 1: HERO BANNER */}
       <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center pt-32 pb-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8 px-6 py-2 border border-cyan-accent/30 rounded-full text-[10px] tracking-[0.3em] uppercase text-cyan-accent bg-cyan-accent/5 backdrop-blur-sm"
+          className="text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight uppercase mb-8 max-w-6xl leading-[0.9] text-balance"
         >
-          Connect Global Brands & Premium Distribution
-        </motion.div>
+          Connect <span className="gradient-text">Global Brands </span>
+          & Premium Distribution
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-xs tracking-widest uppercase text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed"
+          transition={{ delay: 0.2 }}
+          className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed tracking-wide mb-12"
         >
           D'lian Connection is a trusted partner specializing in importing and distributing premium products, 
           bridging the gap between international manufacturers and Vietnamese consumers.
-        </motion.p>
-        
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight uppercase mb-8 max-w-6xl leading-[0.9] text-balance"
-        >
-          Hai Dang Phat: Your Trusted <br />
-          <span className="gradient-text">Gateway to Vietnam</span>
-        </motion.h1>
-
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="text-lg md:text-xl text-gray-400 max-w-3xl leading-relaxed tracking-wide mb-12"
-        >
-          Leading Importer and Distributor of Premium International Foods and Specialized Industrial Facilities. 
-          We bridge the gap from global excellence to local demand.
         </motion.p>
 
         <motion.div 

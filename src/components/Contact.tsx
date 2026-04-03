@@ -36,7 +36,7 @@ export default function Contact() {
     "Event Organization",
     "Production House",
     "VR/AR Tech Studio",
-    "Retail distribution in Vietnam"
+    "Retail Distribution in Vietnam"
   ];
 
   const budgets = [

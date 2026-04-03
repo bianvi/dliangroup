@@ -52,7 +52,7 @@ export default function Navbar() {
               <Link href="/services/event-organization" className="block px-6 py-3 text-white/70 hover:bg-cyan-accent/10 hover:text-cyan-accent transition-all">Event Organization</Link>
               <Link href="/services/production-house" className="block px-6 py-3 text-white/70 hover:bg-cyan-accent/10 hover:text-cyan-accent transition-all">Production House</Link>
               <Link href="/services/immersive-tech" className="block px-6 py-3 text-white/70 hover:bg-cyan-accent/10 hover:text-cyan-accent transition-all">VR–AR / Interaction</Link>
-              <Link href="/services/retail-distribution" className="block px-6 py-3 text-white/70 hover:bg-cyan-accent/10 hover:text-cyan-accent transition-all">Retail distribution in Vietnam</Link>
+              <Link href="/services/retail-distribution" className="block px-6 py-3 text-white/70 hover:bg-cyan-accent/10 hover:text-cyan-accent transition-all">Retail Distribution in Vietnam</Link>
             </div>
           </div>
 
@@ -85,7 +85,7 @@ export default function Navbar() {
               <Link href="/services/event-organization" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-cyan-accent">Event Organization</Link>
               <Link href="/services/production-house" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-cyan-accent">Production House</Link>
               <Link href="/services/immersive-tech" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-cyan-accent">VR–AR / Interaction</Link>
-              <Link href="/services/retail-distribution" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-cyan-accent">Retail distribution in Vietnam</Link>
+              <Link href="/services/retail-distribution" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-cyan-accent">Retail Distribution in Vietnam</Link>
               <Link href="/portfolio" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-cyan-accent">Portfolio</Link>
               <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-cyan-accent">Contact</Link>
             </div>
