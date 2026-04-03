@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   MapPin, 
   Warehouse, 
@@ -18,8 +18,21 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import Contact from '../../../components/Contact';
+import ProjectModal from '../../../components/ProjectModal';
+import { projects } from '../../../data/projects';
 
 export default function ConnectBrandsPage() {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenProject = (id: number) => {
+    const project = projects.find(p => p.id === id);
+    if (project) {
+      setSelectedProject(project);
+      setIsModalOpen(true);
+    }
+  };
+
   return (
     <div className="bg-background-dark text-white overflow-x-hidden">
       {/* Background Elements */}
@@ -135,7 +148,7 @@ export default function ConnectBrandsPage() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/20 to-cyan-accent/20 rounded-3xl blur-3xl opacity-30"></div>
               <img 
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200" 
+                src="https://inrifz8adj9odids.public.blob.vercel-storage.com/13414842104209026519.jpg" 
                 alt="Logistics and Distribution" 
                 className="w-full h-full object-cover rounded-3xl border border-white/10 grayscale hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"
@@ -172,19 +185,19 @@ export default function ConnectBrandsPage() {
                 title: "Global Beef Imports", 
                 icon: <Beef size={32} />, 
                 desc: "Premium Beef from USA, Canada, Australia, and Russia.",
-                image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800"
+                image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/3403682138995096993.jpg"
               },
               { 
                 title: "Vietnamese Seafood", 
                 icon: <Fish size={32} />, 
                 desc: "Top-quality seafood sourced from Vietnam's pristine coastal waters.",
-                image: "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&q=80&w=800"
+                image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/3403682138995096995.jpg"
               },
               { 
                 title: "Diverse Frozen Foods", 
                 icon: <Warehouse size={32} />, 
                 desc: "Comprehensive range serving multiple industry segments.",
-                image: "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=800"
+                image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/9479512103075192406.jpg"
               }
             ].map((item, i) => (
               <motion.div 
@@ -275,14 +288,16 @@ export default function ConnectBrandsPage() {
               <h4 className="text-xs tracking-[0.3em] text-cyan-accent uppercase mb-2">Case Studies</h4>
               {[
                 {
+                  id: 8,
                   title: "Lang Biang Land, Da Lat",
                   desc: "Strategic provider of specialized leisure park equipment for Da Lat's iconic destination.",
-                  image: "https://images.unsplash.com/photo-1513889959010-65a4ec8104af?auto=format&fit=crop&q=80&w=800"
+                  image: "https://res.cloudinary.com/dhgu45hvi/image/upload/v1774084304/d6e73bbe7952c50c9c43_rmxwsx.jpg"
                 },
                 {
-                  title: "My Khanh Village",
+                  id: 9,
+                  title: "My Khánh Village",
                   desc: "Primary distributor of diverse amusement and tourist facilities for this thriving Southern eco-tourism hub.",
-                  image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800"
+                  image: "https://res.cloudinary.com/dhgu45hvi/image/upload/v1774107509/645677017_967862532476975_5230929743128581835_n_ueoifb.jpg"
                 }
               ].map((caseStudy, i) => (
                 <motion.div 
@@ -290,7 +305,8 @@ export default function ConnectBrandsPage() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  className="group flex flex-col sm:flex-row gap-6 p-6 bg-white/5 border border-white/10 rounded-3xl hover:border-cyan-accent/30 transition-all duration-500"
+                  onClick={() => handleOpenProject(caseStudy.id)}
+                  className="group flex flex-col sm:flex-row gap-6 p-6 bg-white/5 border border-white/10 rounded-3xl hover:border-cyan-accent/30 transition-all duration-500 cursor-pointer"
                 >
                   <div className="sm:w-1/3 aspect-video sm:aspect-square overflow-hidden rounded-2xl">
                     <img 
@@ -316,7 +332,7 @@ export default function ConnectBrandsPage() {
         <div className="max-w-7xl mx-auto">
           <header className="mb-20 text-center">
             <h2 className="text-xs tracking-[0.3em] text-cyan-accent uppercase mb-6">Our Network</h2>
-            <h3 className="text-4xl md:text-5xl font-normal tracking-tight uppercase mb-8">
+            <h3 className="text-4xl md:text-5xl font-normal tracking-tight uppercase mb-8 text-white">
               Your Success is Our <span className="gradient-text">Commitment.</span>
             </h3>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed font-light">
@@ -330,19 +346,22 @@ export default function ConnectBrandsPage() {
                 title: "Modern Trade (MT)", 
                 icon: <ShoppingCart className="text-cyan-accent" size={32} />, 
                 desc: "Proudly supplied to Co.op Mart, K Mart, and other major retail chains.",
-                label: "Supermarket"
+                label: "Supermarket",
+                image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/216834852282965448710.jpg"
               },
               { 
                 title: "Foodservice (HORECA)", 
                 icon: <Utensils className="text-cyan-accent" size={32} />, 
                 desc: "Trustworthy partner for top hotels, restaurants, and catering chains.",
-                label: "Restaurant/Plate"
+                label: "Restaurant/Plate",
+                image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/9479512103075192407.jpg"
               },
               { 
                 title: "Industrial & Corporate", 
                 icon: <Factory className="text-cyan-accent" size={32} />, 
                 desc: "Raw material supplier for specialized manufacturing and corporate clients.",
-                label: "B2B/Factory"
+                label: "B2B/Factory",
+                image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/3403682138995096992.jpg"
               }
             ].map((channel, i) => (
               <motion.div 
@@ -351,16 +370,25 @@ export default function ConnectBrandsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="testimonial-glass p-10 rounded-3xl border border-white/10 hover:border-cyan-accent/30 transition-all group"
+                className="relative overflow-hidden p-10 rounded-3xl border border-white/10 hover:border-cyan-accent/30 transition-all group min-h-[320px] flex flex-col justify-end"
               >
-                <div className="w-16 h-16 rounded-2xl bg-cyan-accent/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                  {channel.icon}
+                {/* Background Image with Overlay */}
+                <div 
+                  className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                  style={{ backgroundImage: `url(${channel.image})` }}
+                />
+                <div className="absolute inset-0 z-10 bg-background-dark/60 group-hover:bg-background-dark/40 transition-colors duration-500" />
+
+                <div className="relative z-20">
+                  <div className="w-16 h-16 rounded-2xl bg-cyan-accent/10 backdrop-blur-md flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                    {channel.icon}
+                  </div>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-cyan-accent mb-2">{channel.label}</div>
+                  <h4 className="text-2xl font-bold mb-4 uppercase tracking-tight">{channel.title}</h4>
+                  <p className="text-gray-400 text-sm leading-relaxed font-light">
+                    {channel.desc}
+                  </p>
                 </div>
-                <div className="text-[10px] tracking-[0.3em] uppercase text-cyan-accent mb-2">{channel.label}</div>
-                <h4 className="text-2xl font-bold mb-4 uppercase tracking-tight">{channel.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed font-light">
-                  {channel.desc}
-                </p>
               </motion.div>
             ))}
           </div>
@@ -394,6 +422,16 @@ export default function ConnectBrandsPage() {
         </div>
         <Contact />
       </section>
+
+      <AnimatePresence>
+        {isModalOpen && selectedProject && (
+          <ProjectModal 
+            project={selectedProject} 
+            isOpen={isModalOpen} 
+            onClose={() => setIsModalOpen(false)} 
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
