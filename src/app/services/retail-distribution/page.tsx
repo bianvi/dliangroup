@@ -15,6 +15,7 @@ import {
   ArrowRight,
   CheckCircle2,
   TrendingUp,
+  Volleyball,
   ShieldCheck
 } from 'lucide-react';
 import Contact from '../../../components/Contact';
@@ -336,32 +337,32 @@ export default function RetailDistributionPage() {
               Your Success is Our <span className="gradient-text">Commitment.</span>
             </h3>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed font-light">
-              Hai Dang Phat's success is built on strong, mutual partnerships. We serve a diverse client base across multiple channels, from national supermarket chains to fine dining and industrial scale clients.
+              At D’Lian Connection, our growth is driven by powerful, long-term partnerships built on trust and shared value. We proudly serve a diverse portfolio of clients across multiple channels, from national supermarket chains and modern trade to e-commerce platforms and large-scale industrial partners. Our network is designed to help our partners expand faster, operate smarter, and succeed sustainably.
             </p>
           </header>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {[
               { 
-                title: "Modern Trade (MT)", 
+                title: "Supermarket & Retail",
                 icon: <ShoppingCart className="text-cyan-accent" size={32} />, 
-                desc: "Proudly supplied to Co.op Mart, K Mart, and other major retail chains.",
-                label: "Supermarket",
+                desc: " We supply imported premium foods and global-standard products to supermarkets and retail shops.",
+                label: "Modern Trade (MT)",
                 image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/216834852282965448710.jpg"
               },
               { 
-                title: "Foodservice (HORECA)", 
-                icon: <Utensils className="text-cyan-accent" size={32} />, 
-                desc: "Trustworthy partner for top hotels, restaurants, and catering chains.",
-                label: "Restaurant/Plate",
-                image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/9479512103075192407.jpg"
+                title: "Theme Park & Kids Playground", 
+                icon:  <Volleyball className="text-cyan-accent" size={32} />,
+                desc: " We import and deliver world-class playground equipment and theme park facilities for modern entertainment spaces.",
+                label: "Amusement park",
+                image: "https://res.cloudinary.com/dhgu45hvi/image/upload/v1774084164/DJI_0002_sv2wh4.jpg"
               },
               { 
-                title: "Industrial & Corporate", 
-                icon: <Factory className="text-cyan-accent" size={32} />, 
-                desc: "Raw material supplier for specialized manufacturing and corporate clients.",
-                label: "B2B/Factory",
-                image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/3403682138995096992.jpg"
+                title: "B2B & Restaurant", 
+                icon: <Utensils className="text-cyan-accent" size={32} />, 
+                desc: "We provide imported foods and specialized equipment solutions for restaurants, corporate clients, and large-scale projects.",
+                label: "Industrial & Corporate",
+                image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/9479512103075192407.jpg",
               }
             ].map((channel, i) => (
               <motion.div 
@@ -370,7 +371,7 @@ export default function RetailDistributionPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="relative overflow-hidden p-10 rounded-3xl border border-white/10 hover:border-cyan-accent/30 transition-all group min-h-[320px] flex flex-col justify-end"
+                className="relative overflow-hidden p-10 rounded-3xl border border-white/10 hover:border-cyan-accent/30 transition-all group min-h-[320px] flex flex-col justify-start"
               >
                 {/* Background Image with Overlay */}
                 <div 
@@ -383,7 +384,7 @@ export default function RetailDistributionPage() {
                   <div className="w-16 h-16 rounded-2xl bg-cyan-accent/10 backdrop-blur-md flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                     {channel.icon}
                   </div>
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-cyan-accent mb-2">{channel.label}</div>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-cyan-accent mb-2 font-bold">{channel.label}</div>
                   <h4 className="text-2xl font-bold mb-4 uppercase tracking-tight">{channel.title}</h4>
                   <p className="text-gray-400 text-sm leading-relaxed font-light">
                     {channel.desc}
