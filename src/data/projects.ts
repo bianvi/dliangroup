@@ -54,6 +54,31 @@ export const projects: Project[] = [
     ]
   },
   {
+    id: 10,
+    title: "Daniel Wellington Petite Classic Collection Launch",
+    client: "Daniel Wellington",
+    category: "Event Organization",
+    image: "https://inrifz8adj9odids.public.blob.vercel-storage.com/Daniel%20Wellington/15752379096358828742.jpg",
+    year: "2017",
+    duration: "1 night event",
+    overview: "An intimate brand gathering introducing Daniel Wellington’s latest collection to the Vietnamese fashion community. The event was designed as a curated experience where guests could discover the brand’s signature minimalism through both product display and atmosphere.",
+    challenge: "Translating a Scandinavian design philosophy into a local context while maintaining its essence of simplicity, elegance, and modern sophistication. Creating a space that feels understated yet memorable for a fashion-forward audience.",
+    solution: "Crafted a refined event environment that reflects the brand’s minimal aesthetic. From spatial design to guest flow, every element was intentionally restrained to highlight the product. Curated guest list, subtle styling, and clean visual composition allowed the collection to speak naturally, creating an experience that feels effortless yet distinctive.",
+    outcome: "The launch successfully introduced the Petite Classic collection to Vietnam's most influential fashion tastemakers, setting a high standard for future brand events in the market.",
+    results: [
+      { label: "Attendance", value: "150+" },
+      { label: "PR Value", value: "High" },
+      { label: "Media Features", value: "25+" }
+    ],
+    technologies: ["Event Production", "Visual Identity", "Experiential Marketing", "Spatial Design"],
+    gallery: [
+      { type: 'image', url: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/Daniel%20Wellington/15752379096358828742.jpg' },
+      { type: 'image', url: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/Daniel%20Wellington/15752379096358828743.jpg' },
+      { type: 'image', url: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/Daniel%20Wellington/15752379096358828744.jpg' },
+      { type: 'image', url: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/Daniel%20Wellington/32462786329739482001.jpg' }
+    ]
+  },
+  {
     id: 3,
     title: "Xiaomi Smartphone Campaign TVC",
     client: "Xiaomi Vietnam",
@@ -300,9 +325,10 @@ export const projects: Project[] = [
     gallery: [
       { type: 'image', url: 'https://res.cloudinary.com/dhgu45hvi/image/upload/v1774107509/645677017_967862532476975_5230929743128581835_n_ueoifb.jpg' },
       { type: 'image', url: 'https://res.cloudinary.com/dhgu45hvi/image/upload/v1774107505/641604416_960920969837798_5415843551616667805_n_dwp5fp.jpg' },
-      { type: 'image', url: 'https://res.cloudinary.com/dhgu45hvi/image/upload/v1774107504/640355087_960920973171131_6672403816310056355_n_dwaisx.jpg' },
+      { type: 'image', url: 'https://res.cloudinary.com/dhgu45hvi/image/upload/v1774107404/640355087_960920973171131_6672403816310056355_n_dwaisx.jpg' },
       { type: 'image', url: 'https://res.cloudinary.com/dhgu45hvi/image/upload/v1774107499/640268971_960920476504514_1127081415243782835_n_ootqvk.jpg' },
       { type: 'video', url: 'https://res.cloudinary.com/dhgu45hvi/video/upload/v1774021856/559_dbwals.mp4' }
     ]
-  }
+  },
+  
 ];
