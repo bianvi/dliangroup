@@ -36,7 +36,7 @@ export default function ContactPage() {
     "High-end Event Production",
     "Commercial & Cinematic Film",
     "VR/AR & Immersive Tech",
-    "Amusement Park Design & Equipment"
+    "Retail Distribution in Vietnam"
   ];
 
   const budgets = [
