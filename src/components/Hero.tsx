@@ -1,11 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 
 export default function Hero() {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center pt-24 pb-24 md:pt-32">
       <div className="absolute inset-0 z-0">
@@ -66,41 +64,17 @@ export default function Hero() {
           <a href="#contact" className="group relative primary-glow-btn w-full sm:w-auto px-12 py-5 bg-gradient-to-r from-accent-blue to-cyan-accent text-white rounded-full font-bold text-lg text-center">
             Book a Consultation
           </a>
-          <button 
-            onClick={(e) => {
-              e.preventDefault();
-              setIsVideoModalOpen(true);
-            }} 
-            className="group primary-glow-btn w-full sm:w-auto px-12 py-5 border border-white/20 backdrop-blur-sm rounded-full font-bold text-lg flex items-center justify-center gap-3"
+          <a 
+            href="https://canva.link/c70n616gujyxqfh"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group primary-glow-btn w-full sm:w-auto px-12 py-5 border border-white/20 backdrop-blur-sm rounded-full font-bold text-lg flex items-center justify-center gap-3 text-white transition-all hover:border-white/40"
           >
-            <span className="material-icons text-white/60 group-hover:text-cyan-accent transition-colors">play_circle_filled</span>
-            Watch Showreel
-          </button>
+            <span className="material-icons text-white/60 group-hover:text-cyan-accent transition-colors">description</span>
+            View brief profile
+          </a>
         </motion.div>
       </div>
-
-      {/* Video Modal */}
-      {isVideoModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-8 backdrop-blur-sm">
-          <button 
-            onClick={() => setIsVideoModalOpen(false)}
-            className="absolute top-6 right-6 text-white bg-white/10 hover:bg-white/30 p-2 rounded-full transition-all z-[101]"
-            aria-label="Close modal"
-          >
-            <span className="material-icons">close</span>
-          </button>
-          <div className="w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl relative z-[100]">
-            <video 
-              controls 
-              autoPlay 
-              className="w-full h-full object-cover"
-              src="https://res.cloudinary.com/dhgu45hvi/video/upload/v1773546987/Mascot_Introduction_Video_Creation_jseosd.mp4"
-            >
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
