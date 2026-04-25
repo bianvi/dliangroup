@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center pt-24 pb-24 md:pt-32">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0">
+        {/* <div className="absolute inset-0">
           <video 
             autoPlay 
             loop 
@@ -16,7 +16,7 @@ export default function Hero() {
             className="w-full h-full object-cover opacity-60"
             src="https://res.cloudinary.com/dhgu45hvi/video/upload/v1773546987/Mascot_Introduction_Video_Creation_jseosd.mp4"
           />
-        </div>
+        </div> */}
         <div className="absolute inset-0 cinematic-overlay"></div>
         <div className="absolute inset-0 hero-gradient"></div>
         
