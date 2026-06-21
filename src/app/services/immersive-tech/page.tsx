@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Play, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Contact from '../../../components/Contact';
 import VisualGallery from '../../../components/VisualGallery';
+import AIPhotoBooth from '../../../components/AIPhotoBooth';
 
 export default function ImmersiveTech() {
   const [selectedCaseMediaIndex, setSelectedCaseMediaIndex] = useState<number | null>(null);
@@ -288,6 +289,8 @@ export default function ImmersiveTech() {
           </div>,
           document.body
       )}
+
+      <AIPhotoBooth />
 
       <VisualGallery />
 
