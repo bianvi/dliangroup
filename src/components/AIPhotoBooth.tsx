@@ -7,16 +7,16 @@ import { Sparkles, Printer, Share2, Users, Clock, Settings, Maximize2, X } from 
 interface EventPhoto {
   src: string;
   label: string;
-  category: string;
 }
 
 const eventPhotos: EventPhoto[] = [
-  { src: '/image/AI-Booth/experience.png', label: 'Interactive Kiosk Setup', category: 'Physical Setup' },
-  { src: '/image/Launch Event/10.jpg', label: 'Live Brand Activation', category: 'Event Crowd' },
-  { src: '/image/AI-Booth/style_cyberpunk.png', label: 'AI Cyberpunk Output', category: 'Avatar Style' },
-  { src: '/image/AI-Booth/style_astronaut.png', label: 'AI Astronaut Output', category: 'Avatar Style' },
-  { src: '/image/Launch Event/8.jpg', label: 'Onsite Guest Engagement', category: 'Interaction' },
-  { src: '/image/AI-Booth/style_fantasy.png', label: 'AI Fantasy Output', category: 'Avatar Style' },
+  { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/47c3bc71ad166d78f7aced640a590031.jpg', label: 'Interactive Kiosk Setup'},
+  { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/698aa9b01ebf056beb7f572edf703394%20%281%29.jpg', label: 'Interactive Kiosk Setup'},
+  { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/8c38a119d5635407b9ae29a37e46fd01.jpg', label: 'Interactive Kiosk Setup'},
+  { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/AIPHOTO_1779619840162-2.png', label: 'Interactive Kiosk Setup'},
+  { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/AIPHOTO_1779619840197-2.png', label: 'Interactive Kiosk Setup'},
+  { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/AIPHOTO_1779619840197.png', label: 'Interactive Kiosk Setup'},
+  { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/AIPHOTO_1779619840203-2.png', label: 'Interactive Kiosk Setup'},
 ];
 
 export default function AIPhotoBooth() {
