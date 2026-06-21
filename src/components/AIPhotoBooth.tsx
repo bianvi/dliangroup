@@ -14,8 +14,8 @@ const eventPhotos: EventPhoto[] = [
   { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/698aa9b01ebf056beb7f572edf703394%20%281%29.jpg', label: 'Interactive Kiosk Setup'},
   { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/8c38a119d5635407b9ae29a37e46fd01.jpg', label: 'Interactive Kiosk Setup'},
   { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/AIPHOTO_1779619840162-2.png', label: 'Interactive Kiosk Setup'},
-  { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/AIPHOTO_1779619840197-2.png', label: 'Interactive Kiosk Setup'},
   { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/AIPHOTO_1779619840197.png', label: 'Interactive Kiosk Setup'},
+  { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/AIPHOTO_1779619840197-2.png', label: 'Interactive Kiosk Setup'},
   { src: 'https://inrifz8adj9odids.public.blob.vercel-storage.com/AI%20photo%20booth/AIPHOTO_1779619840203-2.png', label: 'Interactive Kiosk Setup'},
 ];
 
@@ -178,7 +178,7 @@ export default function AIPhotoBooth() {
                   />
                   {/* Subtle Hover Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <span className="text-[8px] tracking-widest text-cyan-accent font-bold uppercase mb-0.5">{photo.category}</span>
+                    {/* <span className="text-[8px] tracking-widest text-cyan-accent font-bold uppercase mb-0.5">{photo.category}</span> */}
                     <div className="flex justify-between items-center">
                       <span className="text-[10px] tracking-wider text-white uppercase truncate pr-2">{photo.label}</span>
                       <Maximize2 size={12} className="text-white/60 shrink-0" />
@@ -231,7 +231,7 @@ export default function AIPhotoBooth() {
               animate={{ opacity: 1, y: 0 }}
               className="mt-6 text-center"
             >
-              <span className="text-cyan-accent text-xs font-bold uppercase tracking-[0.3em] block mb-2">{activePhoto.category}</span>
+              {/* <span className="text-cyan-accent text-xs font-bold uppercase tracking-[0.3em] block mb-2">{activePhoto.category}</span> */}
               <h3 className="text-xl md:text-2xl font-light tracking-widest text-white uppercase">{activePhoto.label}</h3>
             </motion.div>
           </motion.div>
