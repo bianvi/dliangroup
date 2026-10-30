@@ -15,6 +15,11 @@ export default function EventOrganization() {
     "/image/Fashion Show/3.jpg",
     "/image/Fashion Show/4.jpg",
     "/image/Fashion Show/5.jpg",
+    "https://inrifz8adj9odids.public.blob.vercel-storage.com/Event/fashion_show/2aOboR93RHse47ImTGRBCdTnxWC1pUUBRAVB8sZU.jpg",
+    "https://inrifz8adj9odids.public.blob.vercel-storage.com/Event/fashion_show/2aOboR93RHse47ImTGRBCdidUcAGJXClbLSm6pk0.jpg",
+    "https://inrifz8adj9odids.public.blob.vercel-storage.com/Event/fashion_show/2aOboR93RHsgUwF9yTJN2yRHdIwiQHenA4dS7G4W.jpg",
+    "https://inrifz8adj9odids.public.blob.vercel-storage.com/Event/fashion_show/2aOboR93RHsgUwF9yTJN2yRYCspDIi6j2Lm88lRw.jpg",
+    "https://inrifz8adj9odids.public.blob.vercel-storage.com/Event/fashion_show/2aOboR93RIGZxJg1Vvbi8FJSWv65MLsHdhdDna7M.jpg",
   ];
 
   const launchEventImages = [
@@ -156,12 +161,14 @@ export default function EventOrganization() {
           viewport={{ once: true }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
         >
-          <div className="lg:col-span-7 overflow-hidden rounded-2xl relative group">
-            <img
-              alt="Fashion Show Lighting"
-              className="w-full aspect-[16/9] object-cover transition-transform duration-700"
-              src={fashionShowImages[currentImageIndex]}
-            />
+          <div className="lg:col-span-7 overflow-hidden rounded-2xl relative group bg-black">
+            <div className="w-full aspect-[16/9] flex items-center justify-center">
+              <img
+                alt="Fashion Show Lighting"
+                className="h-full w-full object-contain transition-transform duration-700"
+                src={fashionShowImages[currentImageIndex]}
+              />
+            </div>
             
             <button
               onClick={prevImage}
